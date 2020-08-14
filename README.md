@@ -1,2 +1,3 @@
-# natlas.github.com
-Github pages for natlas documentation
+# docs.natlas.io
+
+Automatically built documentation for github pages.
