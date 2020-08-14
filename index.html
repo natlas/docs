@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Welcome to the Natlas documentation! &mdash; docs.natlas.io  documentation</title>
+  <title>Natlas Documentation &mdash; Natlas Documentation  documentation</title>
   
 
   
@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
 
   
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
   
   
   
@@ -49,7 +51,7 @@
           
 
           
-            <a href="#" class="icon icon-home" alt="Documentation Home"> docs.natlas.io
+            <a href="#" class="icon icon-home" alt="Documentation Home"> Natlas Documentation
           
 
           
@@ -82,8 +84,10 @@
             
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Welcome to the Natlas documentation!</a></li>
-<li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+<li><a class="reference internal" href="#">Natlas Documentation</a></li>
+<li><a class="reference internal" href="#what-is-natlas">What Is Natlas?</a></li>
+<li><a class="reference internal" href="#natlas-architecture">Natlas Architecture</a></li>
+<li><a class="reference internal" href="#indices">Indices</a></li>
 </ul>
 </div>
             
@@ -99,7 +103,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="#">docs.natlas.io</a>
+          <a href="#">Natlas Documentation</a>
         
       </nav>
 
@@ -130,7 +134,7 @@
     
       <li><a href="#" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Welcome to the Natlas documentation!</li>
+      <li>Natlas Documentation</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -149,13 +153,23 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="welcome-to-the-natlas-documentation">
-<h1>Welcome to the Natlas documentation!<a class="headerlink" href="#welcome-to-the-natlas-documentation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="natlas-documentation">
+<h1>Natlas Documentation<a class="headerlink" href="#natlas-documentation" title="Permalink to this headline">¶</a></h1>
 <div class="toctree-wrapper compound">
 </div>
 </div>
-<div class="section" id="indices-and-tables">
-<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-natlas">
+<h1>What Is Natlas?<a class="headerlink" href="#what-is-natlas" title="Permalink to this headline">¶</a></h1>
+<p>Natlas is a continuous reconnaissance platform which prioritizes identifying exposure, rather than identifying vulnerabilities. Identifying vulnerabilities often contains many similar steps that Natlas uses, however the emphasis is on identifying known vulnerabilities and discarding anything else. Natlas performs port scans using the popular <a class="reference external" href="https://nmap.org/">Nmap</a> scanner and then stores that data in a structured format that allows for easy search. Using Nmap also allows for extensibility using the powerful Nmap Scripting Engine, instead of requiring custom tooling to be written into the Natlas agent itself. It also takes screenshots of web services using <a class="reference external" href="https://github.com/michenriksen/aquatone">Aquatone</a> and vnc services using <a class="reference external" href="http://vncsnapshot.sourceforge.net/">Vncsnapshot</a>, providing the option to visually browse your exposure.</p>
+<p>What does “continuous reconnaissance” mean, in this case? Well quite simply, it means that Natlas never stops scanning. When it completes it’s scanning cycle, it starts again automatically. Port exposure is something that can change regularly and without notice, so it is unreliable to reference old port scans when making decisions. This has pros and cons, like any other decision, however. If the scanning scope is only a handful of addresses, Natlas may be scanning them multiple times per hour, which may not be desirable.</p>
+</div>
+<div class="section" id="natlas-architecture">
+<h1>Natlas Architecture<a class="headerlink" href="#natlas-architecture" title="Permalink to this headline">¶</a></h1>
+<p>Natlas is divided into two primary components - the server and the agent. The server is responsible for distributing work, processing the results, and providing the user an easy interface to explore and examine the results. The agent is responsible for performing all scanning activities, such as port scanning, service fingerprinting, and taking screenshots. Together, they create a scalable scanning platform that can be centrally controlled and easily scaled out to millions of addresses.</p>
+<p>Natlas uses an agent-driven HTTP work distribution system. This means that the scanning agents request work from the server, perform that work, and then submit the results back, ad infinitum. This means the agent doesn’t have to have any ports exposed for the server to talk to,</p>
+</div>
+<div class="section" id="indices">
+<h1>Indices<a class="headerlink" href="#indices" title="Permalink to this headline">¶</a></h1>
 <ul class="simple">
 <li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
 <li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>

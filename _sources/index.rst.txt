@@ -1,20 +1,30 @@
-.. docs.natlas.io documentation master file, created by
-   sphinx-quickstart on Fri Aug 14 12:42:02 2020.
-   You can adapt this file completely to your liking, but it should at least
-   contain the root `toctree` directive.
-
-Welcome to the Natlas documentation!
+Natlas Documentation
 ==========================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents:
 
-
-
-Indices and tables
+What Is Natlas?
 ==================
 
+Natlas is a continuous reconnaissance platform which prioritizes identifying exposure, rather than identifying vulnerabilities. Identifying vulnerabilities often contains many similar steps that Natlas uses, however the emphasis is on identifying known vulnerabilities and discarding anything else. Natlas performs port scans using the popular Nmap_ scanner and then stores that data in a structured format that allows for easy search. Using Nmap also allows for extensibility using the powerful Nmap Scripting Engine, instead of requiring custom tooling to be written into the Natlas agent itself. It also takes screenshots of web services using Aquatone_ and vnc services using Vncsnapshot_, providing the option to visually browse your exposure.
+
+What does "continuous reconnaissance" mean, in this case? Well quite simply, it means that Natlas never stops scanning. When it completes it's scanning cycle, it starts again automatically. Port exposure is something that can change regularly and without notice, so it is unreliable to reference old port scans when making decisions. This has pros and cons, like any other decision, however. If the scanning scope is only a handful of addresses, Natlas may be scanning them multiple times per hour, which may not be desirable.
+
+Natlas Architecture
+===================
+
+Natlas is divided into two primary components - the server and the agent. The server is responsible for distributing work, processing the results, and providing the user an easy interface to explore and examine the results. The agent is responsible for performing all scanning activities, such as port scanning, service fingerprinting, and taking screenshots. Together, they create a scalable scanning platform that can be centrally controlled and easily scaled out to millions of addresses.
+
+Natlas uses an agent-driven HTTP work distribution system. This means that the scanning agents request work from the server, perform that work, and then submit the results back, ad infinitum. This means the agent doesn't have to have any ports exposed for the server to talk to,
+
+Indices
+=======
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
+
+.. _Nmap: https://nmap.org/
+.. _Aquatone: https://github.com/michenriksen/aquatone
+.. _Vncsnapshot: http://vncsnapshot.sourceforge.net/
