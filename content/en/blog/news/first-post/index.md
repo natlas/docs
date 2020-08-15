@@ -1,46 +1,23 @@
 ---
-date: 2018-10-06
-title: "Easy documentation with Docsy"
-linkTitle: "Announcing Docsy"
-description: "The Docsy Hugo theme lets project maintainers and contributors focus on content, not on reinventing a website infrastructure from scratch"
-author: Riona MacNamara ([@rionam](https://twitter.com/bepsays))
-resources:
-- src: "**.{png,jpg}"
-  title: "Image #:counter"
-  params:
-    byline: "Photo: Riona MacNamara / CC-BY-CA"
+date: 2020-08-14
+title: "Announcing Natlas Documentation"
+linkTitle: "Announcing Natlas Documentation"
+description: "Natlas is several years old at this point, it's about time we provided some proper documentation."
+author: dade ([@0xdade](https://twitter.com/0xdade))
+
 ---
 
-**This is a typical blog post that includes images.**
+We're still getting started with the documentation, but we've gone from a blank github pages site to an automatically built docs site using [Hugo] and [Docsy]. Some information that was spread haphazardly throughout the wiki has been consolidated into corresponding docs pages, and a Getting Started guide has been produced.
 
-The front matter specifies the date of the blog post, its title, a short description that will be displayed on the blog landing page, and its author.
+There are RSS feeds for both the [project news] as well as [project releases]. If you know where to get a good RSS reader, give me a shout via Twitter. (R.I.P. Google Reader)
 
-## Including images
+With this development also brings the revival of the [Natlas discord server], where users and developers alike can convene to talk about ideas for Natlas, get support, and learn from each other.
 
-Here's an image (`featured-sunset-get.png`) that includes a byline and a caption.
+Last but not least, The [Natlas Team] now has a Twitter account, which will be used to announce new blog posts, new tutorials, new projects, and new releases.
 
-{{< imgproc sunset Fill "600x300" >}}
-Fetch and scale an image in the upcoming Hugo 0.43.
-{{< /imgproc >}}
-
-The front matter of this post specifies properties to be assigned to all image resources:
-
-```
-resources:
-- src: "**.{png,jpg}"
-  title: "Image #:counter"
-  params:
-    byline: "Photo: Riona MacNamara / CC-BY-CA"
-```
-
-To include the image in a page, specify its details like this:
-
-```
-{{< imgproc sunset Fill "600x300" >}}
-Fetch and scale an image in the upcoming Hugo 0.43.
-{{< /imgproc >}}
-```
-
-The image will be rendered at the size and byline specified in the front matter.
-
-
+[Hugo]: https://gohugo.io/
+[Docsy]: https://www.docsy.dev/
+[project news]: /blog/news/index.xml
+[project releases]: /blog/releases/index.xml
+[Natlas discord server]: https://discord.gg/nVY8Stm
+[Natlas Team]: https://twitter.com/NatlasTeam

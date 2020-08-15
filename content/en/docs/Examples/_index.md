@@ -2,13 +2,11 @@
 title: "Examples"
 linkTitle: "Examples"
 weight: 3
-date: 2017-01-05
+date: 2020-08-14
 description: >
-  See your project in action!
+  See Natlas in action!
 ---
 
-{{% pageinfo %}}
-This is a placeholder page that shows you how to use this template site.
-{{% /pageinfo %}}
+Maybe before getting started setting up your own server, you'd like to get a feel for what the tool looks like and what it can produce. The Natlas development team runs a [demo installation] that doesn't require authentication so that you can explore scan data at your leisure. This doesn't let you see the admin interface or the user interface, but it'll give you a feel for what kind of data can be collected and what it's like to use the platform.
 
-Do you have any example **applications** or **code** for your users in your repo or elsewhere? Link to your examples here.
+[demo installation]: https://natlas.io
