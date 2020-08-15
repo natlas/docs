@@ -1,4 +1,419 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Natlas Documentation – Docsy Blog</title><link>/blog/</link><description>Recent content in Docsy Blog on Natlas Documentation</description><generator>Hugo -- gohugo.io</generator><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: Easy documentation with Docsy</title><link>/blog/2018/10/06/easy-documentation-with-docsy/</link><pubDate>Sat, 06 Oct 2018 00:00:00 +0000</pubDate><guid>/blog/2018/10/06/easy-documentation-with-docsy/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Natlas – Docsy Blog</title><link>/blog/</link><description>Recent content in Docsy Blog on Natlas</description><generator>Hugo -- gohugo.io</generator><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: v0.6.10 - Aquatone Upgrade &amp; Better Screenshots</title><link>/blog/2020/04/17/v0.6.10-aquatone-upgrade-better-screenshots/</link><pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate><guid>/blog/2020/04/17/v0.6.10-aquatone-upgrade-better-screenshots/</guid><description>
+&lt;h2 id="github">Github&lt;/h2>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.10">Github Release&lt;/a>&lt;/p>
+&lt;p>Notice: This is a re-release due to a bug that was found immediately after release&lt;/p>
+&lt;h3 id="changed">Changed&lt;/h3>
+&lt;ul>
+&lt;li>Web screenshots now use aquatone 1.7.0 for more reliability&lt;/li>
+&lt;li>Web screenshots now apply to all http ports instead of just 80/443&lt;/li>
+&lt;li>Web screenshots have been cleaned up in the UI to look cleaner.&lt;/li>
+&lt;/ul>
+&lt;h3 id="known-bugs">Known Bugs&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://github.com/natlas/natlas/issues/352">Agent launch permissions&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Blog: v0.6.9 - Small Changes</title><link>/blog/2020/04/06/v0.6.9-small-changes/</link><pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate><guid>/blog/2020/04/06/v0.6.9-small-changes/</guid><description>
+&lt;h2 id="github">Github&lt;/h2>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.9">Github Release&lt;/a>&lt;/p>
+&lt;h3 id="added">Added&lt;/h3>
+&lt;ul>
+&lt;li>Search can now be augmented with &lt;code>&amp;amp;format=json&lt;/code> to return search results in json format.&lt;/li>
+&lt;/ul>
+&lt;h3 id="changed">Changed&lt;/h3>
+&lt;ul>
+&lt;li>Random button now replaces the url with the current host it finds. This means you can no longer spam f5 to load a new random host, however you can now go back in history to previous random findings.&lt;/li>
+&lt;/ul>
+&lt;h3 id="security">Security&lt;/h3>
+&lt;ul>
+&lt;li>Updated Pillow dependency to address CVE-2020-5313 and CVE-2019-19911.&lt;/li>
+&lt;/ul></description></item><item><title>Blog: v0.6.8 - Bugfixes, Status, Docker, and Metrics!</title><link>/blog/2020/03/10/v0.6.8-bugfixes-status-docker-and-metrics/</link><pubDate>Tue, 10 Mar 2020 00:00:00 +0000</pubDate><guid>/blog/2020/03/10/v0.6.8-bugfixes-status-docker-and-metrics/</guid><description>
+&lt;h2 id="github">Github&lt;/h2>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.8">Github Release&lt;/a>&lt;/p>
+&lt;h3 id="added">Added&lt;/h3>
+&lt;ul>
+&lt;li>Docker files are available for the agent and server now.&lt;/li>
+&lt;li>Request tracing and metrics integration are now available via integrations with OpenCensus (&lt;a href="https://github.com/natlas/natlas/issues/219">#219&lt;/a>)&lt;/li>
+&lt;li>API Swagger Spec can be found in &lt;code>/spec/swagger.yaml&lt;/code> and will be very helpful as natlas moves towards more of an api model. (&lt;a href="https://github.com/natlas/natlas/issues/225">#225&lt;/a>)&lt;/li>
+&lt;li>Client-side timezone localization for scan results using javascript. (&lt;a href="https://github.com/natlas/natlas/issues/240">#240&lt;/a>)&lt;/li>
+&lt;li>A simple status interface and api to look at the current status of the natlas deployment. Includes information about when the server was started, the number of completed scan cycles, when the last scan cycle started, the number of effective hosts in scope, and how many scans have been submitted in the current scan cycle. (No ticket)&lt;/li>
+&lt;/ul>
+&lt;h3 id="changed">Changed&lt;/h3>
+&lt;ul>
+&lt;li>A lot of files have been refactored to simplify the code and reduce complexity.&lt;/li>
+&lt;/ul>
+&lt;h3 id="fixed">Fixed&lt;/h3>
+&lt;ul>
+&lt;li>Fixed the add scope function when no tags are defined for a scope item. (&lt;a href="https://github.com/natlas/natlas/issues/196">#196&lt;/a>)&lt;/li>
+&lt;li>Fixed a bug where the tagging interface for blacklisted IPs was exposed but not functional. (&lt;a href="https://github.com/natlas/natlas/issues/206">#206&lt;/a>)&lt;/li>
+&lt;li>Fixed a bug where a scope of 2 addresses would not be randomly selected very well. (&lt;a href="https://github.com/natlas/natlas/issues/215">#215&lt;/a>)&lt;/li>
+&lt;li>Fixed a bug where elastic connections where after one failed attempt to connect, it could never reconnect. (&lt;a href="https://github.com/natlas/natlas/issues/221">#221&lt;/a>)&lt;/li>
+&lt;li>Fixed a bug where Screenshot and Random routes did not require authentication even if it was marked as required in the config. (&lt;a href="https://github.com/natlas/natlas/issues/228">#228&lt;/a>)&lt;/li>
+&lt;/ul></description></item><item><title>Blog: v0.6.7 - Bugfixes, Quality of Life, Code Improvements</title><link>/blog/2019/10/20/v0.6.7-bugfixes-quality-of-life-code-improvements/</link><pubDate>Sun, 20 Oct 2019 00:00:00 +0000</pubDate><guid>/blog/2019/10/20/v0.6.7-bugfixes-quality-of-life-code-improvements/</guid><description>
+&lt;h2 id="github">Github&lt;/h2>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.7">Github Release&lt;/a>&lt;/p>
+&lt;h3 id="added">Added&lt;/h3>
+&lt;ul>
+&lt;li>Administrators can now configure process timeout values for web and vnc screenshot agent capabilities. (&lt;a href="https://github.com/natlas/natlas/issues/186">#186&lt;/a>)&lt;/li>
+&lt;li>Users may now choose to search historical results by including &lt;code>includeHistory=1&lt;/code> in the query parameters. (&lt;a href="https://github.com/natlas/natlas/issues/110">#110&lt;/a>)&lt;/li>
+&lt;li>Agents can now optionally save data that failed to upload to the server via the &lt;code>NATLAS_SAVE_FAILS&lt;/code> environment variable. (&lt;a href="https://github.com/natlas/natlas/issues/129">#129&lt;/a>)&lt;/li>
+&lt;li>Importing scope, either via the web interface or via the &lt;code>./add-scope.py&lt;/code> script, now supports importing scope items with tags. Each imported line can have a comma separated list of tags. Tags will be created if they don&amp;rsquo;t already exist. (&lt;a href="https://github.com/natlas/natlas/issues/142">#142&lt;/a>)&lt;/li>
+&lt;/ul>
+&lt;h3 id="changed">Changed&lt;/h3>
+&lt;ul>
+&lt;li>Screenshots are stored in deterministic location based purely on their file hash, instead of &lt;code>timestamp/&amp;lt;hash&amp;gt;.ext&lt;/code>. (&lt;a href="https://github.com/natlas/natlas/issues/182">#182&lt;/a>)&lt;/li>
+&lt;li>Agents will now get work definitions from the server even when scanning targets from a file or the command line. (&lt;a href="https://github.com/natlas/natlas/issues/179">#179&lt;/a>)&lt;/li>
+&lt;/ul>
+&lt;h3 id="fixed">Fixed&lt;/h3>
+&lt;ul>
+&lt;li>Agent now correctly makes sure that it&amp;rsquo;s logs folder exists before trying to use it. (&lt;a href="https://github.com/natlas/natlas/issues/181">#181&lt;/a>)&lt;/li>
+&lt;li>Agent checks for &lt;code>timed_out&lt;/code> before it checks for &lt;code>is_up&lt;/code> (&lt;a href="https://github.com/natlas/natlas/issues/184">#184&lt;/a>)&lt;/li>
+&lt;li>Handle exceptions when export requests are made for non-existing data (&lt;a href="https://github.com/natlas/natlas/issues/191">#191&lt;/a>&lt;/li>
+&lt;li>Removed unexpected search export button when no search results &lt;a href="https://github.com/natlas/natlas/issues/193">#193&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Blog: v0.6.6 - Agent Improvements, Screenshot Browser, &amp; More</title><link>/blog/2019/10/15/v0.6.6-agent-improvements-screenshot-browser-more/</link><pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate><guid>/blog/2019/10/15/v0.6.6-agent-improvements-screenshot-browser-more/</guid><description>
+&lt;h2 id="github">Github&lt;/h2>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.6">Github Release&lt;/a>&lt;/p>
+&lt;h3 id="known-bugs">Known Bugs&lt;/h3>
+&lt;ul>
+&lt;li>2019-10-16 - The agent doesn&amp;rsquo;t automatically create it&amp;rsquo;s logs folder, resulting in a failure. &lt;code>mkdir logs&lt;/code> in the &lt;code>natlas-agent&lt;/code> directory to fix this. (&lt;a href="https://github.com/natlas/natlas/issues/181">#181&lt;/a>). This has been hotpatched into the 0.6.6 release tarball below.&lt;/li>
+&lt;li>2019-10-16 - When nmap times out (typically meaning the process took too long to end after the &amp;ndash;host-timeout value expired), the agent thread will try to submit results and check for an invalid key. This is noted by &lt;a href="https://github.com/natlas/natlas/issues/184">#184&lt;/a> but is not included in the attached tarball.&lt;/li>
+&lt;/ul>
+&lt;h3 id="added">Added&lt;/h3>
+&lt;ul>
+&lt;li>Screenshot Browser (&lt;a href="https://github.com/natlas/natlas/issues/173">#173&lt;/a>)&lt;/li>
+&lt;li>Administrative settings:
+&lt;ul>
+&lt;li>Optionally use local subresources instead of CDN subresources (#&lt;a href="https://github.com/natlas/natlas/issues/105">105&lt;/a>)&lt;/li>
+&lt;li>Optionally add a custom brand field to navigation to more easily identify the natlas instance you&amp;rsquo;re viewing (&lt;a href="https://github.com/natlas/natlas/issues/106">#106&lt;/a>)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Store structured SSL certificate data for any port that we&amp;rsquo;ve identified an ssl-cert for (&lt;a href="https://github.com/natlas/natlas/issues/146">#146&lt;/a>)&lt;/li>
+&lt;/ul>
+&lt;h3 id="changed">Changed&lt;/h3>
+&lt;ul>
+&lt;li>Agent logging is done via an app logger now with timestamps and to a file. (&lt;a href="https://github.com/natlas/natlas/issues/170">#170&lt;/a>)&lt;/li>
+&lt;li>Agent relies on nmap capabilities being set instead of running as root. (&lt;a href="https://github.com/natlas/natlas/issues/123">#123&lt;/a>) (Thanks droberson!)&lt;/li>
+&lt;li>Agent refactoring to improve maintainability&lt;/li>
+&lt;/ul>
+&lt;h3 id="fixed">Fixed&lt;/h3>
+&lt;ul>
+&lt;li>Handle NmapParserException when malformed xml files are encountered (&lt;a href="https://github.com/natlas/natlas/issues/169">#169&lt;/a>)&lt;/li>
+&lt;li>Improve randomness of &lt;code>/random/&lt;/code> route by selecting a rand int each time instead of seeding with timestamp. (&lt;a href="https://github.com/natlas/natlas/issues/178">#178&lt;/a>)&lt;/li>
+&lt;/ul></description></item><item><title>Blog: v0.6.5 - Screenshot overhaul, bugfixes, performance improvements</title><link>/blog/2019/10/05/v0.6.5-screenshot-overhaul-bugfixes-performance-improvements/</link><pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate><guid>/blog/2019/10/05/v0.6.5-screenshot-overhaul-bugfixes-performance-improvements/</guid><description>
+&lt;h2 id="github">Github&lt;/h2>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.5">Github Release&lt;/a>&lt;/p>
+&lt;h3 id="added">Added&lt;/h3>
+&lt;ul>
+&lt;li>Consolidate server logs into logs/ folder (&lt;a href="https://github.com/natlas/natlas/issues/163">#163&lt;/a>)&lt;/li>
+&lt;li>Logging scope manager and cyclical prng starts and restarts (&lt;a href="https://github.com/natlas/natlas/issues/118">#118&lt;/a>)&lt;/li>
+&lt;li>Screenshot filter (&lt;a href="https://github.com/natlas/natlas/issues/78">#78&lt;/a>)&lt;/li>
+&lt;li>Versioned Template Files (&lt;a href="https://github.com/natlas/natlas/issues/164">#164&lt;/a>)&lt;/li>
+&lt;li>Check For Update Feature (&lt;a href="https://github.com/natlas/natlas/issues/48">#48&lt;/a>)&lt;/li>
+&lt;li>Optional natlas version override for developing changes to the way host data is stored and presented. (No ticket)&lt;/li>
+&lt;/ul>
+&lt;h3 id="changed">Changed&lt;/h3>
+&lt;ul>
+&lt;li>Screenshot overhaul (&lt;a href="https://github.com/natlas/natlas/issues/72">#72&lt;/a>)
+&lt;ul>
+&lt;li>Thumbnails of images&lt;/li>
+&lt;li>Save images on disk and serve as files (cacheable, less overhead than base64)&lt;/li>
+&lt;li>Serve thumbnail and only serve full image when clicked&lt;/li>
+&lt;li>nginx example location block included&lt;/li>
+&lt;li>serves from &lt;code>$DOMAIN/media/&lt;/code>&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Load Search Modal Only When Clicked (&lt;a href="https://github.com/natlas/natlas/issues/141">#141&lt;/a>)&lt;/li>
+&lt;/ul>
+&lt;h3 id="fixed">Fixed&lt;/h3>
+&lt;ul>
+&lt;li>Failure to cleanup Aquatone files (&lt;a href="https://github.com/natlas/natlas/issues/157">#157&lt;/a>)&lt;/li>
+&lt;li>Screenshots Page Only Shows Most Recent Screenshots (&lt;a href="https://github.com/natlas/natlas/issues/98">#98&lt;/a>)&lt;/li>
+&lt;/ul></description></item><item><title>Blog: v0.6.4 - Bugfixes! Quality of life!</title><link>/blog/2019/09/29/v0.6.4-bugfixes-quality-of-life/</link><pubDate>Sun, 29 Sep 2019 00:00:00 +0000</pubDate><guid>/blog/2019/09/29/v0.6.4-bugfixes-quality-of-life/</guid><description>
+&lt;h2 id="github">Github&lt;/h2>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.4">Github Release&lt;/a>&lt;/p>
+&lt;h3 id="added">Added&lt;/h3>
+&lt;ul>
+&lt;li>Server - Random button gives us a random host (&lt;a href="https://github.com/natlas/natlas/issues/131">#131&lt;/a>)&lt;/li>
+&lt;li>Server - User profiles can now select between different view formats. Currently supported formats are: Pretty, Raw. (&lt;a href="https://github.com/natlas/natlas/issues/119">#119&lt;/a>)&lt;/li>
+&lt;li>Server - Added &lt;code>tags&lt;/code> example to search help modal (&lt;a href="https://github.com/natlas/natlas/issues/149">#149&lt;/a>)&lt;/li>
+&lt;/ul>
+&lt;h3 id="changed">Changed&lt;/h3>
+&lt;ul>
+&lt;li>Server - Automatically attempt to reconnect to elasticsearch on the next request if our last attempt failed and it&amp;rsquo;s been more than 60 seconds. (&lt;a href="https://github.com/natlas/natlas/issues/154">#154&lt;/a>)&lt;/li>
+&lt;li>Server/Agent - &lt;code>scan_id&lt;/code> field increased from 10 characters in length to 16 characters. (&lt;a href="https://github.com/natlas/natlas/issues/66">#66&lt;/a>)&lt;/li>
+&lt;/ul>
+&lt;h3 id="fixed">Fixed&lt;/h3>
+&lt;ul>
+&lt;li>Server - Fixed bug in scan manager where updating the networks in range to scan caused unexpected scan targets. (&lt;a href="https://github.com/natlas/natlas/issues/150">#150&lt;/a>)&lt;/li>
+&lt;li>Server - Fixed view issue not populating user&amp;rsquo;s settings in profile page (&lt;a href="https://github.com/natlas/natlas/issues/158">#158&lt;/a>)&lt;/li>
+&lt;li>Server - Cleanup relationship between a scope item and tags when a scope item is deleted (&lt;a href="https://github.com/natlas/natlas/issues/156">#156&lt;/a>)&lt;/li>
+&lt;li>Agent - Fixed retry failures when server is down so agents should now automatically try to reconnect as intended (&lt;a href="https://github.com/natlas/natlas/issues/155">#155&lt;/a>)&lt;/li>
+&lt;/ul></description></item><item><title>Blog: v0.6.3 - Security fixes and style improvements</title><link>/blog/2019/04/22/v0.6.3-security-fixes-and-style-improvements/</link><pubDate>Mon, 22 Apr 2019 00:00:00 +0000</pubDate><guid>/blog/2019/04/22/v0.6.3-security-fixes-and-style-improvements/</guid><description>
+&lt;h2 id="github">Github&lt;/h2>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.3">Github Release&lt;/a>&lt;/p>
+&lt;h3 id="added">Added&lt;/h3>
+&lt;ul>
+&lt;li>Normal users can now be added with the add-admin.py bootstrap script&lt;/li>
+&lt;/ul>
+&lt;h3 id="changed">Changed&lt;/h3>
+&lt;ul>
+&lt;li>SECURITY - Invite and Password Reset tokens have moved from using JWT to database-backed stateful tokens. These tokens expire after a defined period of time, as well as if the token is successfully used.&lt;/li>
+&lt;li>Various styling improvements for authentication pages&lt;/li>
+&lt;/ul>
+&lt;h3 id="fixed">Fixed&lt;/h3>
+&lt;ul>
+&lt;li>SECURITY - Invite and Password Reset flows have been updated to include an intermediary step that prevents the secret tokens from leaking to 3rd parties via the Referer header.&lt;/li>
+&lt;li>SECURITY - Email validation is much stricter now, through the use of python-email-validator. This fixes problems where emails like &lt;code>test@test.com@test.com&lt;/code> or &lt;code>test @test.com&lt;/code> could have been treated as valid emails, causing unexpected behaviors.&lt;/li>
+&lt;li>New users are explicitly created with &amp;ldquo;is_admin&amp;rdquo; set to false, instead of the previous &amp;ldquo;None&amp;rdquo; that they would get in certain flows.&lt;/li>
+&lt;li>The nginx deployment script now correctly recommends placing all logs in the same folder, instead of &lt;code>/var/log/nginx/natlas&lt;/code> and &lt;code>/var/log/nginx/natlas.io&lt;/code>.&lt;/li>
+&lt;li>Fixed erroneous help string in search help modal that was a holdover from v0.5.x.&lt;/li>
+&lt;/ul>
+&lt;h3 id="removed">Removed&lt;/h3>
+&lt;ul>
+&lt;li>Removed an unused css load from adobe for the NATLAS logo font. We previously settled on using the image, but had forgotten to remove the font stylesheet include.&lt;/li>
+&lt;/ul></description></item><item><title>Blog: v0.6.2 - New branding, back to top, standardized comms</title><link>/blog/2019/04/20/v0.6.2-new-branding-back-to-top-standardized-comms/</link><pubDate>Sat, 20 Apr 2019 00:00:00 +0000</pubDate><guid>/blog/2019/04/20/v0.6.2-new-branding-back-to-top-standardized-comms/</guid><description>
+&lt;h2 id="github">Github&lt;/h2>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.2">Github Release&lt;/a>&lt;/p>
+&lt;h3 id="added">Added&lt;/h3>
+&lt;ul>
+&lt;li>Branding improvements&lt;/li>
+&lt;li>Version is now visible in the server footer&lt;/li>
+&lt;li>Back-to-top button&lt;/li>
+&lt;li>Server doesn&amp;rsquo;t interact with mismatched versions&lt;/li>
+&lt;/ul>
+&lt;h3 id="changed">Changed&lt;/h3>
+&lt;ul>
+&lt;li>Style improvements&lt;/li>
+&lt;li>Communication between agent and server has been more standardized around json messaging&lt;/li>
+&lt;/ul>
+&lt;h3 id="fixed">Fixed&lt;/h3>
+&lt;ul>
+&lt;li>Agent standalone mode got broken with the agent configurations, fixed the standalone default scanning options&lt;/li>
+&lt;/ul></description></item><item><title>Blog: v0.6.1 - Bugfixes</title><link>/blog/2019/04/18/v0.6.1-bugfixes/</link><pubDate>Thu, 18 Apr 2019 00:00:00 +0000</pubDate><guid>/blog/2019/04/18/v0.6.1-bugfixes/</guid><description>
+&lt;h2 id="github">Github&lt;/h2>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.1">Github Release&lt;/a>&lt;/p>
+&lt;h3 id="server-changes">Server changes&lt;/h3>
+&lt;ul>
+&lt;li>Fix natlas-services issue where an agent requesting a new copy of services would break the admin page.&lt;/li>
+&lt;li>Remove debug print statements from the user profile page&lt;/li>
+&lt;/ul>
+&lt;h3 id="agent-changes">Agent changes&lt;/h3>
+&lt;p>None&lt;/p></description></item><item><title>Blog: v0.6.0 - Structured Data, Better Config, Agent Authn, and more!</title><link>/blog/2019/04/17/v0.6.0-structured-data-better-config-agent-authn-and-more/</link><pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate><guid>/blog/2019/04/17/v0.6.0-structured-data-better-config-agent-authn-and-more/</guid><description>
+&lt;h2 id="github">Github&lt;/h2>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.1">Github Release&lt;/a>&lt;/p>
+&lt;h3 id="server-changes">Server changes&lt;/h3>
+&lt;ul>
+&lt;li>Administrators can now require that agents be authenticated in order to get and submit work.&lt;/li>
+&lt;li>Administrators can assign tags to scope ranges, which will then get automatically applied to the resultant scans&lt;/li>
+&lt;li>Administrators can now delete individual scan results as well as entire host results.&lt;/li>
+&lt;li>Setup script now automatically generates a random secret key if one is not already set.&lt;/li>
+&lt;li>Most administration pages have been improved by loading the tables into DataTables, which allow for sorting, searching, and pagination of results. This appears to improve load time, as well.&lt;/li>
+&lt;li>Users can now register their agents for scanning&lt;/li>
+&lt;li>Any authenticated user can request that an address be rescanned, which will get inserted into a queue that gets handed out prior to PRNG targets being assigned again.&lt;/li>
+&lt;li>Nmap XML data gets parsed and pulled into semi-structured elasticsearch documents now, paving the way for more advanced queries and statistics about your networks.&lt;/li>
+&lt;li>jQuery and Bootstrap versions got a major upgrade&lt;/li>
+&lt;li>New updated view to move away from the ugly raw nmap data on the screen&lt;/li>
+&lt;li>Host History page has been updated to provide a more streamlined set of information as well as display entries for when the host was detected as down, timed out, or otherwise didn&amp;rsquo;t have results for it.&lt;/li>
+&lt;li>Scan results can now be exported as json documents, exactly the way the data is stored in elasticsearch.&lt;/li>
+&lt;li>Many many html errors were corrected, which should result in a more stable viewing experience.&lt;/li>
+&lt;/ul>
+&lt;h3 id="agent-changes">Agent changes&lt;/h3>
+&lt;ul>
+&lt;li>Authentication ID and Token support&lt;/li>
+&lt;li>Option to ignore certificate errors when connecting to the natlas server via &lt;code>NATLAS_IGNORE_SSL_WARN&lt;/code> environment variable. (This is useful for working with self-signed certificates, alternatively you can (and should probably) install the issuing CA as a trusted issuer on your agents).&lt;/li>
+&lt;li>Nmap scans that timeout are now being properly cleaned up after&lt;/li>
+&lt;li>Agents now submit status updates (and raw output files) for every host they get work for, whether that host is up, down, timed out, or is up but has no ports open.&lt;/li>
+&lt;li>Agents can be configured to retry any number of times before giving up on submitting data - this can be useful in edge cases where your agents have collected some data that the server doesn&amp;rsquo;t understand, as it prevents the agent/server from getting into an infinite loop of trying to submit data that doesn&amp;rsquo;t work.&lt;/li>
+&lt;li>Agents no longer request extra work before they are ready for it&lt;/li>
+&lt;/ul>
+&lt;h3 id="known-issues">Known Issues&lt;/h3>
+&lt;ul>
+&lt;li>In certain currently-unknown circumstances, when aquatone closes it doesn&amp;rsquo;t clean up the chromium-browser child processes, which can eventually lead to system stability problems via resource exhaustion. This should hopefully be resolved upstream &lt;a href="https://twitter.com/michenriksen/status/1118402907211214848">soon&lt;/a>.&lt;/li>
+&lt;li>Structured port information can&amp;rsquo;t be directly searched via the search box yet, the search box is using query_strings which do not support nested objects.&lt;/li>
+&lt;li>I am still not using a proper api model, but I promise that I&amp;rsquo;m actively thinking about it and figuring out how to move towards it entirely.&lt;/li>
+&lt;/ul>
+&lt;h3 id="extra-nonsense">Extra Nonsense&lt;/h3>
+&lt;ul>
+&lt;li>In the time it took me to develop and debug the necessary features for this release, I&amp;rsquo;ve learned that basically everything I&amp;rsquo;ve done so far is wrong and could have been done way better.&lt;/li>
+&lt;li>In that same time, I&amp;rsquo;ve watched Hackers a dozen times, and listened to &lt;a href="https://www.youtube.com/watch?v=bV-hSgL1R74">Halcyon On and On&lt;/a> for at least 8 hours.&lt;/li>
+&lt;/ul></description></item><item><title>Blog: v0.5.4 - Server stability improvements</title><link>/blog/2019/03/04/v0.5.4-server-stability-improvements/</link><pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate><guid>/blog/2019/03/04/v0.5.4-server-stability-improvements/</guid><description>
+&lt;h2 id="github">Github&lt;/h2>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.5.4">Github Release&lt;/a>&lt;/p>
+&lt;h3 id="server-changes">Server changes&lt;/h3>
+&lt;ul>
+&lt;li>Enable elasticsearch via systemctl in &lt;code>setup-elastic.sh&lt;/code> for server stability.&lt;/li>
+&lt;/ul>
+&lt;h3 id="agent-changes">Agent changes&lt;/h3>
+&lt;p>None&lt;/p></description></item><item><title>Blog: v0.5.3 - Server setup improvements</title><link>/blog/2019/03/01/v0.5.3-server-setup-improvements/</link><pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate><guid>/blog/2019/03/01/v0.5.3-server-setup-improvements/</guid><description>
+&lt;h2 id="github">Github&lt;/h2>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.5.3">Github Release&lt;/a>&lt;/p>
+&lt;h3 id="server-changes">Server changes&lt;/h3>
+&lt;ul>
+&lt;li>Improved setup-server.sh to install virtualenv via apt instead of pip3&lt;/li>
+&lt;/ul>
+&lt;h3 id="agent-changes">Agent changes&lt;/h3>
+&lt;p>None&lt;/p></description></item><item><title>Blog: v0.5.2 - Setup improvements</title><link>/blog/2019/02/24/v0.5.2-setup-improvements/</link><pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate><guid>/blog/2019/02/24/v0.5.2-setup-improvements/</guid><description>
+&lt;h2 id="github">Github&lt;/h2>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.5.2">Github Release&lt;/a>&lt;/p>
+&lt;h3 id="server-changes">Server changes&lt;/h3>
+&lt;ul>
+&lt;li>Improved setup-server.sh to fix user creation and chown files to natlas:natlas before exiting&lt;/li>
+&lt;/ul>
+&lt;h3 id="agent-changes">Agent changes&lt;/h3>
+&lt;p>None&lt;/p></description></item><item><title>Blog: v0.5.1 - Bugfix for agent configs + more responsive view</title><link>/blog/2019/02/17/v0.5.1-bugfix-for-agent-configs-more-responsive-view/</link><pubDate>Sun, 17 Feb 2019 00:00:00 +0000</pubDate><guid>/blog/2019/02/17/v0.5.1-bugfix-for-agent-configs-more-responsive-view/</guid><description>
+&lt;h2 id="github">Github&lt;/h2>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.5.1">Github Release&lt;/a>&lt;/p>
+&lt;h3 id="server-changes">Server Changes&lt;/h3>
+&lt;ul>
+&lt;li>More responsive views should also improve the experience on smaller devices.&lt;/li>
+&lt;/ul>
+&lt;h3 id="agent-changes">Agent Changes&lt;/h3>
+&lt;ul>
+&lt;li>Fixed bug that was causing environment variables to cause failures in the application because they weren&amp;rsquo;t properly being cast from strings to integers.&lt;/li>
+&lt;/ul></description></item><item><title>Blog: v0.5.0 - Initial release</title><link>/blog/2019/02/15/v0.5.0-initial-release/</link><pubDate>Fri, 15 Feb 2019 00:00:00 +0000</pubDate><guid>/blog/2019/02/15/v0.5.0-initial-release/</guid><description>
+&lt;h2 id="github">Github&lt;/h2>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.5.0">Github Release&lt;/a>&lt;/p>
+&lt;p>This release is to provide a consistent, relatively bug free experience for deploying the natlas server and natlas agents. It does not yet contain all of the desired features initially laid out for the project, but it provides a functional set of software that can be used to begin distributed scanning and centralized storage of data to an Elasticsearch back-end.&lt;/p>
+&lt;p>Development was done on Ubuntu 18.10
+Testing was done on Ubuntu 18.10 desktop and 18.04.1 LTS server (headless).&lt;/p>
+&lt;h3 id="requirements">Requirements&lt;/h3>
+&lt;p>The agent can run on relatively low cost hardware, and can scale based on the number of threads you define.&lt;/p>
+&lt;p>If running Elasticsearch on the same server that your natlas server is running on, you&amp;rsquo;ll likely want &lt;em>at least&lt;/em> 3GB of memory. The public test instance is running one server and one agent on 4GB and is hovering around 70% memory usage. Elastic tries to allocate a large chunk of memory at startup by default.&lt;/p>
+&lt;h3 id="server-features">Server Features&lt;/h3>
+&lt;ul>
+&lt;li>Automatic setup via setup scripts
+&lt;ul>
+&lt;li>setup-elastic script to download and install Elasticsearch 6.6.0&lt;/li>
+&lt;li>setup-server script to add a natlas user, install all necessary prereqs, initialize the metadata database&lt;/li>
+&lt;li>Python dependencies are contained within a virtual environment&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Server-side scripts for the following:
+&lt;ul>
+&lt;li>Take or restore elasticsearch snapshots (elastic-snapshot)&lt;/li>
+&lt;li>Add administrative users with a generated random password (add-admin)&lt;/li>
+&lt;li>Promote existing users to administrators (add-admin)&lt;/li>
+&lt;li>Add scope and blacklist items from files (add-scope)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Server-defined list of services for agents to scan for
+&lt;ul>
+&lt;li>Ships with augmented nmap default including popular services such as memcached and mongodb.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Server defined options for agents to use while scanning
+&lt;ul>
+&lt;li>Enable/disable OS Fingerprinting&lt;/li>
+&lt;li>Enable/disable Version Detection&lt;/li>
+&lt;li>Enable/disable Default Scripts&lt;/li>
+&lt;li>Enable/disable Open ports only&lt;/li>
+&lt;li>Scan timeout in seconds before killing an nmap scan&lt;/li>
+&lt;li>Enable/disable web screenshots&lt;/li>
+&lt;li>Enable/disable VNC screenshots&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Basic user access control to the platform
+&lt;ul>
+&lt;li>Differentiation between admin user and regular user&lt;/li>
+&lt;li>Setting to require login in order to view results&lt;/li>
+&lt;li>Setting to allow open registration to the site&lt;/li>
+&lt;li>Admin users can:
+&lt;ul>
+&lt;li>Control settings to modify agent behavior&lt;/li>
+&lt;li>Upload new versions of the servicedb, add individual services, export existing services&lt;/li>
+&lt;li>Add, remove, import, export, view, and toggle scope and blacklist networks.&lt;/li>
+&lt;li>Invite new users, delete users, and promote/demote users to/from admin status&lt;/li>
+&lt;li>Optional login required (default no login required)&lt;/li>
+&lt;li>Optional registration allowed (default invite only)&lt;/li>
+&lt;li>Redirect the natlas server to another Elasticsearch cluster&lt;/li>
+&lt;li>Modify the mail server settings that are used to send invitation and password reset emails&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Normal users can:
+&lt;ul>
+&lt;li>change their password&lt;/li>
+&lt;li>change the number of results to display per page&lt;/li>
+&lt;li>change the length for nmap summaries in search results.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Web Service Front end
+&lt;ul>
+&lt;li>Browse recent results&lt;/li>
+&lt;li>Search for specific results using elasticsearch queries such as specific ports, scans from a specific time period, and full-text search of any other data that can be read from nmap output&lt;/li>
+&lt;li>Browse scan history for any host, each scan is individually addressable&lt;/li>
+&lt;li>View associated web and vnc screenshots for any host&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>API for agent access
+&lt;ul>
+&lt;li>Unauthenticated (for now)&lt;/li>
+&lt;li>&lt;code>/api/getwork&lt;/code>
+&lt;ul>
+&lt;li>Pseudorandom cyclical target selection allows for a seemingly random distribution of scans while providing some assurance that, if the server runs long enough, all items in scope will have been scanned. Edge cases apply.
+&lt;ul>
+&lt;li>When the server restarts, the cycle restarts as well.&lt;/li>
+&lt;li>When an agent restarts, it loses whatever targets are in it&amp;rsquo;s work queue as well as whatever targets it&amp;rsquo;s currently working on. This can be defined as 2*agent.config.max_threads for each agent deployed.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Provides a randomly generated scan identifier that gets used by agents for filenames&lt;/li>
+&lt;li>Provides the current configuration options to use for each scan&lt;/li>
+&lt;li>Provides a hash of the current servicedb, so the agent can determine if it needs a new one&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>/api/natlas-services&lt;/code>
+&lt;ul>
+&lt;li>Returns the current version of the servicedb and ensures that the hash is correct&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>&lt;code>/api/submit&lt;/code>
+&lt;ul>
+&lt;li>Ensures that an nmap scan report is found in a submission&lt;/li>
+&lt;li>Ensures the target of the scan is both in scope and not blacklisted&lt;/li>
+&lt;li>Retrieves the hostname from the scan report&lt;/li>
+&lt;li>Retrieves a list of open ports from the scan report&lt;/li>
+&lt;li>Timestamps the scan results at the time of submission&lt;/li>
+&lt;li>Rejects suspicious scan results where no open ports are found or too many (500+) open ports are found&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Provided nginx config specifies 10Mb limit on scan result submissions&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Example systemd units provided that should &lt;em>just work&lt;/em> after running the setup scripts.&lt;/li>
+&lt;li>Example nginx config provided for a TLS protected front end, reverse proxying to gunicorn&lt;/li>
+&lt;/ul>
+&lt;h3 id="agent-features">Agent Features&lt;/h3>
+&lt;ul>
+&lt;li>Nmap to do port scans and store nmap, xml, and gnmap data&lt;/li>
+&lt;li>Headless screenshots of web servers using &lt;a href="https://github.com/michenriksen/aquatone">aquatone&lt;/a>&lt;/li>
+&lt;li>Headless screenshots of VNC servers using vncsnapshot&lt;/li>
+&lt;li>Configurable environment variables via a &lt;code>.env&lt;/code> file
+&lt;ul>
+&lt;li>Server address from which to get work and submit results to&lt;/li>
+&lt;li>Number of threads to use for scanning (how many simultaneous hosts will you scan)&lt;/li>
+&lt;li>Switch to allow or deny scanning private IP ranges
+&lt;ul>
+&lt;li>Off by default, enable if using natlas to enumerate the inside of your network&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Exponential backoff when attempting to contact the server for new work or submit a completed scan
+&lt;ul>
+&lt;li>Initial timeout value for scans (default 15 seconds)&lt;/li>
+&lt;li>Maximum backoff period (default 5 minutes)&lt;/li>
+&lt;li>Base value to begin the backoff (default 1 second)&lt;/li>
+&lt;li>A jitter of some number of milliseconds below 1 second is automatically determined and applied to each request&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>Standalone mode
+&lt;ul>
+&lt;li>Scan a single target with &lt;code>--target x.x.x.x&lt;/code>&lt;/li>
+&lt;li>Scan a single CIDR range with &lt;code>--target x.x.x.x/xx&lt;/code>&lt;/li>
+&lt;li>Scan a list of line-separated targets and CIDR ranges with &lt;code>--target-file myfile.txt&lt;/code>&lt;/li>
+&lt;li>NOTE: The server will still reject scans for hosts that are not in scope or are explicitly blacklisted.&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;/ul></description></item><item><title>Blog: Easy documentation with Docsy</title><link>/blog/2018/10/06/easy-documentation-with-docsy/</link><pubDate>Sat, 06 Oct 2018 00:00:00 +0000</pubDate><guid>/blog/2018/10/06/easy-documentation-with-docsy/</guid><description>
 &lt;img src="/blog/2018/10/06/easy-documentation-with-docsy/featured-sunset-get_hu69849a7cdb847c2393a7b3a7f6061c86_387442_640x0_resize_catmullrom_2.png" width="640" height="253"/>
 &lt;p>&lt;strong>This is a typical blog post that includes images.&lt;/strong>&lt;/p>
 &lt;p>The front matter specifies the date of the blog post, its title, a short description that will be displayed on the blog landing page, and its author.&lt;/p>
@@ -29,270 +444,6 @@ Fetch and scale an image in the upcoming Hugo 0.43.
 &lt;/div>
 &lt;/div>
 &lt;/code>&lt;/pre>&lt;p>The image will be rendered at the size and byline specified in the front matter.&lt;/p></description></item><item><title>Blog: The second blog post</title><link>/blog/2018/10/06/the-second-blog-post/</link><pubDate>Sat, 06 Oct 2018 00:00:00 +0000</pubDate><guid>/blog/2018/10/06/the-second-blog-post/</guid><description>
-&lt;p>Text can be &lt;strong>bold&lt;/strong>, &lt;em>italic&lt;/em>, or &lt;del>strikethrough&lt;/del>. &lt;a href="https://github.com">Links&lt;/a> should be blue with no underlines (unless hovered over).&lt;/p>
-&lt;p>There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs.&lt;/p>
-&lt;p>There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs.&lt;/p>
-&lt;blockquote>
-&lt;p>There should be no margin above this first sentence.&lt;/p>
-&lt;p>Blockquotes should be a lighter gray with a border along the left side in the secondary color.&lt;/p>
-&lt;p>There should be no margin below this final sentence.&lt;/p>
-&lt;/blockquote>
-&lt;h2 id="first-header">First Header&lt;/h2>
-&lt;p>This is a normal paragraph following a header. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
-&lt;p>Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
-&lt;p>On big screens, paragraphs and headings should not take up the full container width, but we want tables, code blocks and similar to take the full width.&lt;/p>
-&lt;p>Lorem markdownum tuta hospes stabat; idem saxum facit quaterque repetito
-occumbere, oves novem gestit haerebat frena; qui. Respicit recurvam erat:
-pignora hinc reppulit nos &lt;strong>aut&lt;/strong>, aptos, ipsa.&lt;/p>
-&lt;p>Meae optatos &lt;em>passa est&lt;/em> Epiros utiliter &lt;em>Talibus niveis&lt;/em>, hoc lata, edidit.
-Dixi ad aestum.&lt;/p>
-&lt;h2 id="header-2">Header 2&lt;/h2>
-&lt;blockquote>
-&lt;p>This is a blockquote following a header. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
-&lt;/blockquote>
-&lt;h3 id="header-3">Header 3&lt;/h3>
-&lt;pre>&lt;code>This is a code block following a header.
-&lt;/code>&lt;/pre>&lt;h4 id="header-4">Header 4&lt;/h4>
-&lt;ul>
-&lt;li>This is an unordered list following a header.&lt;/li>
-&lt;li>This is an unordered list following a header.&lt;/li>
-&lt;li>This is an unordered list following a header.&lt;/li>
-&lt;/ul>
-&lt;h5 id="header-5">Header 5&lt;/h5>
-&lt;ol>
-&lt;li>This is an ordered list following a header.&lt;/li>
-&lt;li>This is an ordered list following a header.&lt;/li>
-&lt;li>This is an ordered list following a header.&lt;/li>
-&lt;/ol>
-&lt;h6 id="header-6">Header 6&lt;/h6>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>What&lt;/th>
-&lt;th>Follows&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>A table&lt;/td>
-&lt;td>A header&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>A table&lt;/td>
-&lt;td>A header&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>A table&lt;/td>
-&lt;td>A header&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;hr>
-&lt;p>There&amp;rsquo;s a horizontal rule above and below this.&lt;/p>
-&lt;hr>
-&lt;p>Here is an unordered list:&lt;/p>
-&lt;ul>
-&lt;li>Salt-n-Pepa&lt;/li>
-&lt;li>Bel Biv DeVoe&lt;/li>
-&lt;li>Kid &amp;lsquo;N Play&lt;/li>
-&lt;/ul>
-&lt;p>And an ordered list:&lt;/p>
-&lt;ol>
-&lt;li>Michael Jackson&lt;/li>
-&lt;li>Michael Bolton&lt;/li>
-&lt;li>Michael Bublé&lt;/li>
-&lt;/ol>
-&lt;p>And an unordered task list:&lt;/p>
-&lt;ul>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> Create a sample markdown document&lt;/li>
-&lt;li>&lt;input checked="" disabled="" type="checkbox"> Add task lists to it&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> Take a vacation&lt;/li>
-&lt;/ul>
-&lt;p>And a &amp;ldquo;mixed&amp;rdquo; task list:&lt;/p>
-&lt;ul>
-&lt;li>&lt;input disabled="" type="checkbox"> Steal underpants&lt;/li>
-&lt;li>?&lt;/li>
-&lt;li>&lt;input disabled="" type="checkbox"> Profit!&lt;/li>
-&lt;/ul>
-&lt;p>And a nested list:&lt;/p>
-&lt;ul>
-&lt;li>Jackson 5
-&lt;ul>
-&lt;li>Michael&lt;/li>
-&lt;li>Tito&lt;/li>
-&lt;li>Jackie&lt;/li>
-&lt;li>Marlon&lt;/li>
-&lt;li>Jermaine&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;li>TMNT
-&lt;ul>
-&lt;li>Leonardo&lt;/li>
-&lt;li>Michelangelo&lt;/li>
-&lt;li>Donatello&lt;/li>
-&lt;li>Raphael&lt;/li>
-&lt;/ul>
-&lt;/li>
-&lt;/ul>
-&lt;p>Definition lists can be used with Markdown syntax. Definition terms are bold.&lt;/p>
-&lt;dl>
-&lt;dt>Name&lt;/dt>
-&lt;dd>Godzilla&lt;/dd>
-&lt;dt>Born&lt;/dt>
-&lt;dd>1952&lt;/dd>
-&lt;dt>Birthplace&lt;/dt>
-&lt;dd>Japan&lt;/dd>
-&lt;dt>Color&lt;/dt>
-&lt;dd>Green&lt;/dd>
-&lt;/dl>
-&lt;hr>
-&lt;p>Tables should have bold headings and alternating shaded rows.&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Artist&lt;/th>
-&lt;th>Album&lt;/th>
-&lt;th>Year&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>Michael Jackson&lt;/td>
-&lt;td>Thriller&lt;/td>
-&lt;td>1982&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Prince&lt;/td>
-&lt;td>Purple Rain&lt;/td>
-&lt;td>1984&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Beastie Boys&lt;/td>
-&lt;td>License to Ill&lt;/td>
-&lt;td>1986&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;p>If a table is too wide, it should scroll horizontally.&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Artist&lt;/th>
-&lt;th>Album&lt;/th>
-&lt;th>Year&lt;/th>
-&lt;th>Label&lt;/th>
-&lt;th>Awards&lt;/th>
-&lt;th>Songs&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>Michael Jackson&lt;/td>
-&lt;td>Thriller&lt;/td>
-&lt;td>1982&lt;/td>
-&lt;td>Epic Records&lt;/td>
-&lt;td>Grammy Award for Album of the Year, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;amp;B Album, Brit Award for Best Selling Album, Grammy Award for Best Engineered Album, Non-Classical&lt;/td>
-&lt;td>Wanna Be Startin&amp;rsquo; Somethin&amp;rsquo;, Baby Be Mine, The Girl Is Mine, Thriller, Beat It, Billie Jean, Human Nature, P.Y.T. (Pretty Young Thing), The Lady in My Life&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Prince&lt;/td>
-&lt;td>Purple Rain&lt;/td>
-&lt;td>1984&lt;/td>
-&lt;td>Warner Brothers Records&lt;/td>
-&lt;td>Grammy Award for Best Score Soundtrack for Visual Media, American Music Award for Favorite Pop/Rock Album, American Music Award for Favorite Soul/R&amp;amp;B Album, Brit Award for Best Soundtrack/Cast Recording, Grammy Award for Best Rock Performance by a Duo or Group with Vocal&lt;/td>
-&lt;td>Let&amp;rsquo;s Go Crazy, Take Me With U, The Beautiful Ones, Computer Blue, Darling Nikki, When Doves Cry, I Would Die 4 U, Baby I&amp;rsquo;m a Star, Purple Rain&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Beastie Boys&lt;/td>
-&lt;td>License to Ill&lt;/td>
-&lt;td>1986&lt;/td>
-&lt;td>Mercury Records&lt;/td>
-&lt;td>noawardsbutthistablecelliswide&lt;/td>
-&lt;td>Rhymin &amp;amp; Stealin, The New Style, She&amp;rsquo;s Crafty, Posse in Effect, Slow Ride, Girls, (You Gotta) Fight for Your Right, No Sleep Till Brooklyn, Paul Revere, Hold It Now, Hit It, Brass Monkey, Slow and Low, Time to Get Ill&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;hr>
-&lt;p>Code snippets like &lt;code>var foo = &amp;quot;bar&amp;quot;;&lt;/code> can be shown inline.&lt;/p>
-&lt;p>Also, &lt;code>this should vertically align&lt;/code> &lt;del>&lt;code>with this&lt;/code>&lt;/del> &lt;del>and this&lt;/del>.&lt;/p>
-&lt;p>Code can also be shown in a block element.&lt;/p>
-&lt;pre>&lt;code>foo := &amp;quot;bar&amp;quot;;
-bar := &amp;quot;foo&amp;quot;;
-&lt;/code>&lt;/pre>&lt;p>Code can also use syntax highlighting.&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-go" data-lang="go">&lt;span style="color:#204a87;font-weight:bold">func&lt;/span> &lt;span style="color:#000">main&lt;/span>&lt;span style="color:#000;font-weight:bold">()&lt;/span> &lt;span style="color:#000;font-weight:bold">{&lt;/span>
-&lt;span style="color:#000">input&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#4e9a06">`var foo = &amp;#34;bar&amp;#34;;`&lt;/span>
-&lt;span style="color:#000">lexer&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexers&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;javascript&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">_&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">lexer&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Tokenise&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#204a87;font-weight:bold">nil&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">input&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">style&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">styles&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Get&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#4e9a06">&amp;#34;github&amp;#34;&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">formatter&lt;/span> &lt;span style="color:#ce5c00;font-weight:bold">:=&lt;/span> &lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">New&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">html&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">WithLineNumbers&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
-&lt;span style="color:#204a87;font-weight:bold">var&lt;/span> &lt;span style="color:#000">buff&lt;/span> &lt;span style="color:#000">bytes&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Buffer&lt;/span>
-&lt;span style="color:#000">formatter&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Format&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">&amp;amp;&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">style&lt;/span>&lt;span style="color:#000;font-weight:bold">,&lt;/span> &lt;span style="color:#000">iterator&lt;/span>&lt;span style="color:#000;font-weight:bold">)&lt;/span>
-&lt;span style="color:#000">fmt&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">Println&lt;/span>&lt;span style="color:#000;font-weight:bold">(&lt;/span>&lt;span style="color:#000">buff&lt;/span>&lt;span style="color:#000;font-weight:bold">.&lt;/span>&lt;span style="color:#000">String&lt;/span>&lt;span style="color:#000;font-weight:bold">())&lt;/span>
-&lt;span style="color:#000;font-weight:bold">}&lt;/span>
-&lt;/code>&lt;/pre>&lt;/div>&lt;pre>&lt;code>Long, single-line code blocks should not wrap. They should horizontally scroll if they are too long. This line should be long enough to demonstrate this.
-&lt;/code>&lt;/pre>&lt;p>Inline code inside table cells should still be distinguishable.&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Language&lt;/th>
-&lt;th>Code&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>Javascript&lt;/td>
-&lt;td>&lt;code>var foo = &amp;quot;bar&amp;quot;;&lt;/code>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>Ruby&lt;/td>
-&lt;td>&lt;code>foo = &amp;quot;bar&amp;quot;{&lt;/code>&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
-&lt;hr>
-&lt;p>Small images should be shown at their actual size.&lt;/p>
-&lt;p>&lt;img src="https://placekitten.com/g/300/200/" alt="">&lt;/p>
-&lt;p>Large images should always scale down and fit in the content container.&lt;/p>
-&lt;p>&lt;img src="https://placekitten.com/g/1200/800/" alt="">&lt;/p>
-&lt;h2 id="components">Components&lt;/h2>
-&lt;h3 id="alerts">Alerts&lt;/h3>
-&lt;p>
-&lt;div class="alert alert-primary" role="alert">
-This is an alert.
-&lt;/div>
-&lt;div class="alert alert-primary" role="alert">
-&lt;h4 class="alert-heading">Note:&lt;/h4>
-This is an alert with a title.
-&lt;/div>
-&lt;div class="alert alert-primary" role="alert">
-This is a successful alert.
-&lt;/div>
-&lt;div class="alert alert-primary" role="alert">
-This is a warning!
-&lt;/div>
-&lt;div class="alert alert-primary" role="alert">
-&lt;h4 class="alert-heading">Warning!&lt;/h4>
-This is a warning with a title!
-&lt;/div>
-&lt;/p>
-&lt;h2 id="sizing">Sizing&lt;/h2>
-&lt;p>Add some sections here to see how the ToC looks like. Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
-&lt;h3 id="parameters-available">Parameters available&lt;/h3>
-&lt;p>Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
-&lt;h3 id="using-pixels">Using pixels&lt;/h3>
-&lt;p>Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
-&lt;h3 id="using-rem">Using rem&lt;/h3>
-&lt;p>Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
-&lt;h2 id="memory">Memory&lt;/h2>
-&lt;p>Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
-&lt;h3 id="ram-to-use">RAM to use&lt;/h3>
-&lt;p>Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
-&lt;h3 id="more-is-better">More is better&lt;/h3>
-&lt;p>Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
-&lt;h3 id="used-ram">Used RAM&lt;/h3>
-&lt;p>Bacon ipsum dolor sit amet t-bone doner shank drumstick, pork belly porchetta chuck sausage brisket ham hock rump pig. Chuck kielbasa leberkas, pork bresaola ham hock filet mignon cow shoulder short ribs biltong.&lt;/p>
-&lt;pre>&lt;code>This is the final element on the page and there should be no margin below this.
-&lt;/code>&lt;/pre></description></item><item><title>Blog: Another Great Release</title><link>/blog/2018/01/04/another-great-release/</link><pubDate>Thu, 04 Jan 2018 00:00:00 +0000</pubDate><guid>/blog/2018/01/04/another-great-release/</guid><description>
 &lt;p>Text can be &lt;strong>bold&lt;/strong>, &lt;em>italic&lt;/em>, or &lt;del>strikethrough&lt;/del>. &lt;a href="https://github.com">Links&lt;/a> should be blue with no underlines (unless hovered over).&lt;/p>
 &lt;p>There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs.&lt;/p>
 &lt;p>There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs. There should be whitespace between paragraphs.&lt;/p>
