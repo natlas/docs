@@ -1,5 +1,5 @@
 ---
-title: About Goldydocs
+title: About Natlas
 linkTitle: About
 menu:
   main:
@@ -8,31 +8,33 @@ menu:
 ---
 
 
-{{< blocks/cover title="About Goldydocs" image_anchor="bottom" height="min" >}}
+{{< blocks/cover title="What is Natlas?" image_anchor="bottom" height="min" >}}
 
-<p class="lead mt-5">A sample site using the Docsy Hugo theme.
+<p class="lead mt-5">Continuous Recon For The Rest Of Us
 </p>
 
 {{< /blocks/cover >}}
 
 {{% blocks/lead %}}
-Goldydocs is a sample site using the <a href="https://github.com/google/docsy">Docsy</a> Hugo theme that shows what it can do and provides you with a template site structure. It’s designed for you to clone and edit as much as you like. See the different sections of the documentation and site for more ideas.
+Natlas is an open source continuous reconnaissance platform which prioritizes identifying exposure, rather than identifying vulnerabilities. Identifying vulnerabilities often contains many similar steps that Natlas uses, however the emphasis is on identifying known vulnerabilities and discarding anything else. Natlas performs port scans using the popular <a href="https://nmap.org">Nmap</a> scanner and then stores that data in a structured format that allows for easy search. Using Nmap also allows for extensibility using the powerful Nmap Scripting Engine, instead of requiring custom tooling to be written into the Natlas agent itself. It also takes screenshots of web services using <a href="https://github.com/michenriksen/aquatone">Aquatone</a> and vnc services using <a href="http://vncsnapshot.sourceforge.net/">Vncsnapshot</a>, providing the option to visually browse your exposure.
+
 {{% /blocks/lead %}}
 
-
 {{< blocks/section >}}
+
 <div class="col-12">
-<h1 class="text-center">This is another section</h1>
+<h1 class="text-center">Open Source</h1>
+
+Open source is at the core of the Natlas project. Natlas makes extensive use of existing open source tools and libraries, and it's only fair that we pass that along with our project. Natlas and it's associated projects are licensed under <a href="https://choosealicense.com/licenses/apache-2.0/">Apache 2.0</a> unless otherwise stated, which means you're free to use, distribute and modify Natlas to your hearts content. Just fork the repository you're interested in working on and jump right in!
 </div>
 
 {{< /blocks/section >}}
 
-
-
 {{< blocks/section >}}
-
 <div class="col-12">
-<h1 class="text-center">This is another section</h1>
+<h1 class="text-center">Continuous Reconnaissance</h1>
+
+What does "continuous reconnaissance" mean? Well quite simply, it means that Natlas never stops scanning. When it completes it's scanning cycle, it starts again automatically. Port exposure is something that can change regularly and without notice, so it is unreliable to reference old port scans when making decisions. There's no licensing based on the number of addresses scanned, no fees, no artificial restrictions. You can scan as many addresses as fast as your deployment will let you. And if that's not fast enough, you can just scale up.
 </div>
 
 {{< /blocks/section >}}

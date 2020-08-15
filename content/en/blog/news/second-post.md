@@ -1,4 +1,3 @@
-
 ---
 title: "The second blog post"
 linkTitle: "Second blog post"
