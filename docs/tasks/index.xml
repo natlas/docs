@@ -9,49 +9,50 @@
 &lt;p>Natlas also supports wildcard operators when searching text fields, such as &lt;code>hostname:*.example.com&lt;/code> to match all subdomains of example.com, or &lt;code>hostname:example.???&lt;/code> to find all example.tld domains that have a 3 letter tld.&lt;/p>
 &lt;h2 id="metadata">Metadata&lt;/h2>
 &lt;p>Metadata terms are those that are related to the Natlas scan but are not directly related to the acquired scan data.&lt;/p>
-&lt;h3 id="scan_reason">scan_reason&lt;/h3>
+&lt;h3 id="scan-information">Scan Information&lt;/h3>
+&lt;h4 id="scan_reason">scan_reason&lt;/h4>
 &lt;p>&lt;strong>Example:&lt;/strong> &lt;code>scan_reason:manual&lt;/code>&lt;/p>
 &lt;p>&lt;strong>Description:&lt;/strong> scan_reason is used to differentiate between automatic scanning, manually submitted scans, and user-requested rescans. The valid options for this are &lt;code>manual&lt;/code>, &lt;code>automatic&lt;/code>, and &lt;code>requested&lt;/code>.&lt;/p>
-&lt;h3 id="tags">tags&lt;/h3>
+&lt;h4 id="tags">tags&lt;/h4>
 &lt;p>&lt;strong>Example:&lt;/strong> &lt;code>tags:Digital Ocean&lt;/code>&lt;/p>
 &lt;p>&lt;strong>Description:&lt;/strong> tags are applied to scope ranges to automatically group different groups of IP addresses together. These are completely configurable per deployment.&lt;/p>
-&lt;h3 id="scan_id">scan_id&lt;/h3>
+&lt;h4 id="scan_id">scan_id&lt;/h4>
 &lt;p>&lt;strong>Example:&lt;/strong> &lt;code>scan_id:b8befe174067010b6182c3ca28baf095&lt;/code>&lt;/p>
 &lt;p>&lt;strong>Description:&lt;/strong> scan_id is an automatically generated token that uniquely identifies a scan. This is particularly useful if you want to share specific scans with someone.&lt;/p>
-&lt;h3 id="ip">ip&lt;/h3>
+&lt;h4 id="ip">ip&lt;/h4>
 &lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ip:10.0.0.0/8&lt;/code>&lt;/p>
 &lt;p>&lt;strong>Description:&lt;/strong> ip is the IP address targeted by the scan, and supports CIDR notation so that you can search for entire CIDR ranges at a time. The example shows all scans from the &lt;code>10.0.0.0/8&lt;/code> network.&lt;/p>
-&lt;h3 id="hostname">hostname&lt;/h3>
+&lt;h4 id="hostname">hostname&lt;/h4>
 &lt;p>&lt;strong>Example:&lt;/strong> &lt;code>hostname:*.example.com&lt;/code>&lt;/p>
 &lt;p>&lt;strong>Description:&lt;/strong> hostname is determined by nmap as the rDNS (PTR record) value for a given IP address. The example query shows all scans that have a PTR record for a subdomain of example.com&lt;/p>
 &lt;h3 id="automatic-queries">Automatic Queries&lt;/h3>
 &lt;p>These terms are inherent to all search results by default and do not need to be explicitly defined:&lt;/p>
-&lt;h3 id="port_count">port_count&lt;/h3>
+&lt;h4 id="port_count">port_count&lt;/h4>
 &lt;p>&lt;strong>Example:&lt;/strong> &lt;code>port_count:&amp;gt;0&lt;/code>&lt;/p>
 &lt;p>&lt;strong>Description:&lt;/strong> port_count is calculated based on the number of open ports that a scan reports. The example query shows all scans that have more than 0 ports open.&lt;/p>
-&lt;h3 id="is_up">is_up&lt;/h3>
+&lt;h4 id="is_up">is_up&lt;/h4>
 &lt;p>&lt;strong>Example:&lt;/strong> &lt;code>is_up:True&lt;/code>&lt;/p>
 &lt;p>&lt;strong>Description:&lt;/strong> is_up is reported by nmap for whether or not it determined the host was up. This defaults to True for search queries, because looking at hosts that we don&amp;rsquo;t have data for isn&amp;rsquo;t very interesting.&lt;/p>
 &lt;h3 id="timing">Timing&lt;/h3>
 &lt;p>These search operators all pertain to date related fields that are inherent to the Natlas scan documents. These all support operators like &lt;code>&amp;gt;&lt;/code>, &lt;code>&amp;lt;&lt;/code>, &lt;code>&amp;lt;=&lt;/code> and &lt;code>&amp;gt;=&lt;/code> to do simple comparisons comparisons.&lt;/p>
-&lt;h3 id="ctime">ctime&lt;/h3>
+&lt;h4 id="ctime">ctime&lt;/h4>
 &lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ctime:&amp;gt;=2020-01-01&lt;/code>&lt;/p>
 &lt;p>&lt;strong>Description:&lt;/strong> ctime is the creation time of the scan document, which means when the server inserts it into Elastic. The example query shows all scans that were inserted on or after January 1st, 2020.&lt;/p>
-&lt;h3 id="scan_start">scan_start&lt;/h3>
+&lt;h4 id="scan_start">scan_start&lt;/h4>
 &lt;p>&lt;strong>Example:&lt;/strong> &lt;code>scan_start:2020-01-05&lt;/code>&lt;/p>
 &lt;p>&lt;strong>Description:&lt;/strong> scan_start is provided by the agent and tells us when the agent starts doing its work. The example query shows all scans that started (but not necessarily finished) on January 5th, 2020.&lt;/p>
-&lt;h3 id="scan_stop">scan_stop&lt;/h3>
+&lt;h4 id="scan_stop">scan_stop&lt;/h4>
 &lt;p>&lt;strong>Example:&lt;/strong> &lt;code>scan_stop:2020-01-05&lt;/code>&lt;/p>
 &lt;p>&lt;strong>Description:&lt;/strong> scan_stop is provided by the agent and tells us when the agent stopped doing it&amp;rsquo;s work. The example query shows all scans that stopped (but not necessarily started) on January 5th, 2020.&lt;/p>
-&lt;h3 id="elapsed">elapsed&lt;/h3>
+&lt;h4 id="elapsed">elapsed&lt;/h4>
 &lt;p>&lt;strong>Example:&lt;/strong> &lt;code>elapsed:&amp;gt;60&lt;/code>&lt;/p>
 &lt;p>&lt;strong>Description:&lt;/strong> elapsed is calculated based on scan_start and scan_stop and tells us how long the agent spent working on a particular job. The example query shows all scans that took longer than 60 seconds to perform.&lt;/p>
 &lt;h3 id="agent">Agent&lt;/h3>
 &lt;p>These search terms pertain to the agent that performed the work.&lt;/p>
-&lt;h3 id="agent-1">agent&lt;/h3>
+&lt;h4 id="agent-1">agent&lt;/h4>
 &lt;p>&lt;strong>Example:&lt;/strong> &lt;code>agent:44040760a19f5dc6&lt;/code>&lt;/p>
 &lt;p>&lt;strong>Description:&lt;/strong> agent is the identification token of the agent that performed the work. If no token is present, this value will be &lt;code>anonymous&lt;/code>.&lt;/p>
-&lt;h3 id="agent_version">agent_version&lt;/h3>
+&lt;h4 id="agent_version">agent_version&lt;/h4>
 &lt;p>&lt;strong>Example:&lt;/strong> &lt;code>agent_version:0.6.11&lt;/code>&lt;/p>
 &lt;p>&lt;strong>Description:&lt;/strong> agent_version is the configured &lt;code>NATLAS_VERSION&lt;/code> of the agent that reported the work. In &lt;code>0.6.x&lt;/code> this is used to determine how to render the scan data.&lt;/p>
 &lt;h2 id="screenshots">Screenshots&lt;/h2>
