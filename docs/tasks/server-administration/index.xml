@@ -1,0 +1,25 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Natlas – Server Administration</title><link>/docs/tasks/server-administration/</link><description>Recent content in Server Administration on Natlas</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 05 Jan 2017 00:00:00 +0000</lastBuildDate><atom:link href="/docs/tasks/server-administration/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Managing Users</title><link>/docs/tasks/server-administration/managing-users/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/tasks/server-administration/managing-users/</guid><description>
+&lt;div class="pageinfo pageinfo-primary">
+&lt;p>This is a placeholder page. Replace it with your own content.&lt;/p>
+&lt;/div>
+&lt;h2 id="adding-your-first-user">Adding Your First User&lt;/h2>
+&lt;h2 id="inviting-new-users">Inviting New Users&lt;/h2>
+&lt;h3 id="inviting-by-cli">Inviting by CLI&lt;/h3>
+&lt;h3 id="inviting-by-web">Inviting by Web&lt;/h3>
+&lt;h2 id="promoting-a-user">Promoting A User&lt;/h2>
+&lt;h3 id="promoting-by-cli">Promoting by CLI&lt;/h3>
+&lt;h3 id="promoting-by-web">Promoting by Web&lt;/h3></description></item><item><title>Docs: Managing Scope</title><link>/docs/tasks/server-administration/managing-scope/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/tasks/server-administration/managing-scope/</guid><description>
+&lt;div class="pageinfo pageinfo-primary">
+&lt;p>This is a placeholder page.&lt;/p>
+&lt;/div>
+&lt;h2 id="importing-scope">Importing Scope&lt;/h2>
+&lt;h3 id="importing-by-cli">Importing by CLI&lt;/h3>
+&lt;h3 id="importing-by-web">Importing by Web&lt;/h3>
+&lt;h2 id="exporting-scope">Exporting Scope&lt;/h2>
+&lt;h3 id="exporting-by-cli">Exporting by CLI&lt;/h3>
+&lt;h3 id="exporting-by-web">Exporting by Web&lt;/h3>
+&lt;h2 id="disabling-scope">Disabling Scope&lt;/h2></description></item><item><title>Docs: Managing Agents</title><link>/docs/tasks/server-administration/managing-agents/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/tasks/server-administration/managing-agents/</guid><description>
+&lt;h2 id="configuring-port-coverage">Configuring Port Coverage&lt;/h2>
+&lt;h2 id="configuring-nmap">Configuring Nmap&lt;/h2>
+&lt;h2 id="enabling-web-screenshots">Enabling Web Screenshots&lt;/h2>
+&lt;h2 id="enabling-vnc-screenshots">Enabling VNC Screenshots&lt;/h2></description></item></channel></rss>

@@ -1,16 +1,1 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Natlas – Getting Started</title><link>/docs/getting-started/</link><description>Recent content in Getting Started on Natlas</description><generator>Hugo -- gohugo.io</generator><atom:link href="/docs/getting-started/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: NGINX as a Reverse Proxy</title><link>/docs/getting-started/nginx-as-a-reverse-proxy/</link><pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate><guid>/docs/getting-started/nginx-as-a-reverse-proxy/</guid><description>
-&lt;div class="pageinfo pageinfo-primary">
-&lt;p>This section provides resources for setting up nginx as a reverse proxy for your Natlas server.&lt;/p>
-&lt;/div>
-&lt;p>It is not really advisable to run the flask application directly on the internet (or even on your local network). The flask application is just that, an application. It doesn&amp;rsquo;t account for things like SSL certificates, and modifying application logic to add in potential routes for things like Let&amp;rsquo;s Encrypt should be avoided. Luckily, it&amp;rsquo;s very easy to setup a reverse proxy so that all of this stuff can be handled by a proper web server and leave your application to do exactly what it&amp;rsquo;s supposed to do.&lt;/p>
-&lt;p>We provide an example nginx configuration file, however you should familiarize yourself with how to use and secure nginx.&lt;/p>
-&lt;ol>
-&lt;li>&lt;a href="https://docs.nginx.com/nginx/admin-guide/installing-nginx/installing-nginx-open-source/">Installing Nginx&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://docs.nginx.com/nginx/admin-guide/web-server/reverse-proxy/">Nginx Reverse Proxy&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://certbot.eff.org/lets-encrypt/ubuntufocal-nginx">Using Certbot with Nginx&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://docs.nginx.com/nginx/admin-guide/security-controls/">Nginx Security Controls&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://ssl-config.mozilla.org/">Mozilla SSL Configuration Generator&lt;/a>&lt;/li>
-&lt;/ol>
-&lt;p>You can grab our example config to help get started:&lt;/p>
-&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">sudo curl https://raw.githubusercontent.com/natlas/natlas/main/natlas-server/deployment/nginx &amp;gt; /etc/nginx/sites-available/natlas
-&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Natlas – Getting Started</title><link>/docs/getting-started/</link><description>Recent content in Getting Started on Natlas</description><generator>Hugo -- gohugo.io</generator><atom:link href="/docs/getting-started/index.xml" rel="self" type="application/rss+xml"/></channel></rss>
