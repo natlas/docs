@@ -26,31 +26,33 @@ Natlas also supports wildcard operators when searching text fields, such as `hos
 
 Metadata terms are those that are related to the Natlas scan but are not directly related to the acquired scan data.
 
-### scan_reason
+### Scan Information
+
+#### scan_reason
 
 **Example:** `scan_reason:manual`
 
 **Description:** scan_reason is used to differentiate between automatic scanning, manually submitted scans, and user-requested rescans. The valid options for this are `manual`, `automatic`, and `requested`.
 
-### tags
+#### tags
 
  **Example:** `tags:Digital Ocean`
 
  **Description:** tags are applied to scope ranges to automatically group different groups of IP addresses together. These are completely configurable per deployment.
 
-### scan_id
+#### scan_id
 
  **Example:** `scan_id:b8befe174067010b6182c3ca28baf095`
 
  **Description:** scan_id is an automatically generated token that uniquely identifies a scan. This is particularly useful if you want to share specific scans with someone.
 
-### ip
+#### ip
 
  **Example:** `ip:10.0.0.0/8`
 
  **Description:** ip is the IP address targeted by the scan, and supports CIDR notation so that you can search for entire CIDR ranges at a time. The example shows all scans from the `10.0.0.0/8` network.
 
-### hostname
+#### hostname
 
  **Example:** `hostname:*.example.com`
 
@@ -60,13 +62,13 @@ Metadata terms are those that are related to the Natlas scan but are not directl
 
 These terms are inherent to all search results by default and do not need to be explicitly defined:
 
-### port_count
+#### port_count
 
  **Example:** `port_count:>0`
 
  **Description:** port_count is calculated based on the number of open ports that a scan reports. The example query shows all scans that have more than 0 ports open.
 
-### is_up
+#### is_up
 
  **Example:** `is_up:True`
 
@@ -76,25 +78,25 @@ These terms are inherent to all search results by default and do not need to be 
 
 These search operators all pertain to date related fields that are inherent to the Natlas scan documents. These all support operators like `>`, `<`, `<=` and `>=` to do simple comparisons comparisons.
 
-### ctime
+#### ctime
 
  **Example:** `ctime:>=2020-01-01`
 
  **Description:** ctime is the creation time of the scan document, which means when the server inserts it into Elastic. The example query shows all scans that were inserted on or after January 1st, 2020.
 
-### scan_start
+#### scan_start
 
  **Example:** `scan_start:2020-01-05`
 
  **Description:** scan_start is provided by the agent and tells us when the agent starts doing its work. The example query shows all scans that started (but not necessarily finished) on January 5th, 2020.
 
-### scan_stop
+#### scan_stop
 
  **Example:** `scan_stop:2020-01-05`
 
  **Description:** scan_stop is provided by the agent and tells us when the agent stopped doing it's work. The example query shows all scans that stopped (but not necessarily started) on January 5th, 2020.
 
-### elapsed
+#### elapsed
 
  **Example:** `elapsed:>60`
 
@@ -104,13 +106,13 @@ These search operators all pertain to date related fields that are inherent to t
 
 These search terms pertain to the agent that performed the work.
 
-### agent
+#### agent
 
  **Example:** `agent:44040760a19f5dc6`
 
  **Description:** agent is the identification token of the agent that performed the work. If no token is present, this value will be `anonymous`.
 
-### agent_version
+#### agent_version
 
  **Example:** `agent_version:0.6.11`
 
