@@ -1,7 +1,7 @@
 ---
 title: "Examples"
 linkTitle: "Examples"
-weight: 3
+weight: 5
 date: 2020-08-14
 description: >
   See Natlas in action!
