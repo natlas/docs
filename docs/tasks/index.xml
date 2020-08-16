@@ -1,361 +1,171 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Natlas – Core Tasks</title><link>/docs/tasks/</link><description>Recent content in Core Tasks on Natlas</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Thu, 05 Jan 2017 00:00:00 +0000</lastBuildDate><atom:link href="/docs/tasks/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Searching Natlas</title><link>/docs/tasks/searching-natlas/</link><pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate><guid>/docs/tasks/searching-natlas/</guid><description>
-&lt;p>Natlas search is powered by &lt;a href="https://www.elastic.co/">Elasticsearch&lt;/a>, and the syntax that the search box uses is currently equivalent to an Elastic &lt;a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html">Query string query&lt;/a>. This means that queries can be chained together with &lt;code>AND&lt;/code>, &lt;code>OR&lt;/code>, and &lt;code>NOT&lt;/code>, and query grouping can be done like &lt;code>(my:query) OR (my:&amp;quot;other query&amp;quot;)&lt;/code>.&lt;/p>
+&lt;p>Natlas search is powered by &lt;a href="https://www.elastic.co/">Elasticsearch&lt;/a>, and the syntax that the search box uses is currently equivalent to an Elastic &lt;a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html">Query string query&lt;/a>. For a deeper understanding of the query string syntax, please consult that page. A key thing to remember when building queries is that, by default, more search terms results in a narrower result set. Each additional search term serves to further reduce the result set.&lt;/p>
 &lt;p>The Natlas elastic mapping currently makes a lot of things available to you to search, but it may be less than intuitive or unnecessarily verbose because there are no abstractions or shortcuts for common queries. So this page should help you to build more effective queries.&lt;/p>
 &lt;p>If you choose not to specify any fields to query for, it will default to searching the &lt;code>nmap_data&lt;/code> field, which is roughly equivalent to grepping through your &lt;code>scan.nmap&lt;/code> files.&lt;/p>
-&lt;h2 id="basic-operators">Basic Operators&lt;/h2>
-&lt;p>Natlas supports &lt;code>AND&lt;/code>, &lt;code>OR&lt;/code>, and &lt;code>NOT&lt;/code> for combining queries. The default operator is &lt;code>AND&lt;/code> when multiple search terms are present. &lt;code>NOT&lt;/code> can also be shortened to &lt;code>!&lt;/code>, e.g. &lt;code>!tags:&amp;quot;Corpnet-A&amp;quot;&lt;/code> to return only results that are not tagged with &amp;ldquo;Corpnet-A&amp;rdquo;. Natlas also supports wildcard operators when searching text fields, such as &lt;code>hostname:*.example.com&lt;/code>.&lt;/p>
+&lt;h2 id="basic-syntax">Basic Syntax&lt;/h2>
+&lt;p>This section will not go into depth about the query string syntax, but will cover some of the most common operators.&lt;/p>
+&lt;p>Natlas supports &lt;code>AND&lt;/code>, &lt;code>OR&lt;/code>, and &lt;code>NOT&lt;/code> for combining queries. The default operator for Natlas is &lt;code>AND&lt;/code> when multiple search terms are present, (separated by a space). This is important to remember, as the default for Elastic is typically &lt;code>OR&lt;/code>. If you&amp;rsquo;d like to use &lt;code>OR&lt;/code>, you can do so like so: &lt;code>ports.port:80 OR ports.port:443&lt;/code>, which returns hosts that have port 80 or port 443 open.&lt;/p>
+&lt;p>&lt;code>NOT&lt;/code> can also be shortened to &lt;code>!&lt;/code>, e.g. &lt;code>!tags:&amp;quot;Corpnet-A&amp;quot;&lt;/code> to return only results that are not tagged with &amp;ldquo;Corpnet-A&amp;rdquo;.&lt;/p>
+&lt;p>Natlas also supports wildcard operators when searching text fields, such as &lt;code>hostname:*.example.com&lt;/code> to match all subdomains of example.com, or &lt;code>hostname:example.???&lt;/code> to find all example.tld domains that have a 3 letter tld.&lt;/p>
 &lt;h2 id="metadata">Metadata&lt;/h2>
-&lt;p>Metadata operators are those that are related to the Natlas scan but are not directly related to the acquired scan data.&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Term&lt;/th>
-&lt;th>Example&lt;/th>
-&lt;th>Explanation&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>scan_reason&lt;/td>
-&lt;td>&lt;code>scan_reason:manual&lt;/code>&lt;/td>
-&lt;td>scan_reason is used to differentiate between automatic scanning, manually submitted scans, and user-requested rescans. The valid options for this are &lt;code>manual&lt;/code>, &lt;code>automatic&lt;/code>, and &lt;code>requested&lt;/code>.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>tags&lt;/td>
-&lt;td>&lt;code>tags:Digital Ocean&lt;/code>&lt;/td>
-&lt;td>tags are applied to scope ranges to automatically group different groups of IP addresses together. These are completely configurable per deployment.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>scan_id&lt;/td>
-&lt;td>&lt;code>scan_id:b8befe174067010b6182c3ca28baf095&lt;/code>&lt;/td>
-&lt;td>scan_id is an automatically generated token that uniquely identifies a scan. This is particularly useful if you want to share specific scans with someone.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ip&lt;/td>
-&lt;td>&lt;code>ip:10.0.0.0/8&lt;/code>&lt;/td>
-&lt;td>ip is the IP address targeted by the scan, and supports CIDR notation so that you can search for entire CIDR ranges at a time. The example shows all scans from the &lt;code>10.0.0.0/8&lt;/code> network.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>hostname&lt;/td>
-&lt;td>&lt;code>hostname:*.example.com&lt;/code>&lt;/td>
-&lt;td>hostname is determined by nmap as the rDNS (PTR record) value for a given IP address. The example query shows all scans that have a PTR record for a subdomain of example.com&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
+&lt;p>Metadata terms are those that are related to the Natlas scan but are not directly related to the acquired scan data.&lt;/p>
+&lt;h3 id="scan_reason">scan_reason&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>scan_reason:manual&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> scan_reason is used to differentiate between automatic scanning, manually submitted scans, and user-requested rescans. The valid options for this are &lt;code>manual&lt;/code>, &lt;code>automatic&lt;/code>, and &lt;code>requested&lt;/code>.&lt;/p>
+&lt;h3 id="tags">tags&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>tags:Digital Ocean&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> tags are applied to scope ranges to automatically group different groups of IP addresses together. These are completely configurable per deployment.&lt;/p>
+&lt;h3 id="scan_id">scan_id&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>scan_id:b8befe174067010b6182c3ca28baf095&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> scan_id is an automatically generated token that uniquely identifies a scan. This is particularly useful if you want to share specific scans with someone.&lt;/p>
+&lt;h3 id="ip">ip&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ip:10.0.0.0/8&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> ip is the IP address targeted by the scan, and supports CIDR notation so that you can search for entire CIDR ranges at a time. The example shows all scans from the &lt;code>10.0.0.0/8&lt;/code> network.&lt;/p>
+&lt;h3 id="hostname">hostname&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>hostname:*.example.com&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> hostname is determined by nmap as the rDNS (PTR record) value for a given IP address. The example query shows all scans that have a PTR record for a subdomain of example.com&lt;/p>
 &lt;h3 id="automatic-queries">Automatic Queries&lt;/h3>
-&lt;p>These operators are inherent to all search results by default and do not need to be explicitly defined:&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Term&lt;/th>
-&lt;th>Example&lt;/th>
-&lt;th>Explanation&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>port_count&lt;/td>
-&lt;td>&lt;code>port_count:&amp;gt;0&lt;/code>&lt;/td>
-&lt;td>port_count is calculated based on the number of open ports that a scan reports. The example query shows all scans that have more than 0 ports open.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>is_up&lt;/td>
-&lt;td>&lt;code>is_up:True&lt;/code>&lt;/td>
-&lt;td>is_up is reported by nmap for whether or not it determined the host was up. This defaults to True for search queries, because looking at hosts that we don&amp;rsquo;t have data for isn&amp;rsquo;t very interesting.&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
+&lt;p>These terms are inherent to all search results by default and do not need to be explicitly defined:&lt;/p>
+&lt;h3 id="port_count">port_count&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>port_count:&amp;gt;0&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> port_count is calculated based on the number of open ports that a scan reports. The example query shows all scans that have more than 0 ports open.&lt;/p>
+&lt;h3 id="is_up">is_up&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>is_up:True&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> is_up is reported by nmap for whether or not it determined the host was up. This defaults to True for search queries, because looking at hosts that we don&amp;rsquo;t have data for isn&amp;rsquo;t very interesting.&lt;/p>
 &lt;h3 id="timing">Timing&lt;/h3>
 &lt;p>These search operators all pertain to date related fields that are inherent to the Natlas scan documents. These all support operators like &lt;code>&amp;gt;&lt;/code>, &lt;code>&amp;lt;&lt;/code>, &lt;code>&amp;lt;=&lt;/code> and &lt;code>&amp;gt;=&lt;/code> to do simple comparisons comparisons.&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Term&lt;/th>
-&lt;th>Example&lt;/th>
-&lt;th>Explanation&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>ctime&lt;/td>
-&lt;td>&lt;code>ctime:&amp;gt;=2020-01-01&lt;/code>&lt;/td>
-&lt;td>ctime is the creation time of the scan document, which means when the server inserts it into Elastic. The example query shows all scans that were inserted on or after January 1st, 2020.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>scan_start&lt;/td>
-&lt;td>&lt;code>scan_start:2020-01-05&lt;/code>&lt;/td>
-&lt;td>scan_start is provided by the agent and tells us when the agent starts doing its work. The example query shows all scans that started (but not necessarily finished) on January 5th, 2020.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>scan_stop&lt;/td>
-&lt;td>&lt;code>scan_stop:2020-01-05&lt;/code>&lt;/td>
-&lt;td>scan_stop is provided by the agent and tells us when the agent stopped doing it&amp;rsquo;s work. The example query shows all scans that stopped (but not necessarily started) on January 5th, 2020.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>elapsed&lt;/td>
-&lt;td>&lt;code>elapsed:&amp;gt;60&lt;/code>&lt;/td>
-&lt;td>elapsed is calculated based on scan_start and scan_stop and tells us how long the agent spent working on a particular job. The example query shows all scans that took longer than 60 seconds to perform.&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
+&lt;h3 id="ctime">ctime&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ctime:&amp;gt;=2020-01-01&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> ctime is the creation time of the scan document, which means when the server inserts it into Elastic. The example query shows all scans that were inserted on or after January 1st, 2020.&lt;/p>
+&lt;h3 id="scan_start">scan_start&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>scan_start:2020-01-05&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> scan_start is provided by the agent and tells us when the agent starts doing its work. The example query shows all scans that started (but not necessarily finished) on January 5th, 2020.&lt;/p>
+&lt;h3 id="scan_stop">scan_stop&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>scan_stop:2020-01-05&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> scan_stop is provided by the agent and tells us when the agent stopped doing it&amp;rsquo;s work. The example query shows all scans that stopped (but not necessarily started) on January 5th, 2020.&lt;/p>
+&lt;h3 id="elapsed">elapsed&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>elapsed:&amp;gt;60&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> elapsed is calculated based on scan_start and scan_stop and tells us how long the agent spent working on a particular job. The example query shows all scans that took longer than 60 seconds to perform.&lt;/p>
 &lt;h3 id="agent">Agent&lt;/h3>
-&lt;p>These search operators pertain to the agent that performed the work.&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Term&lt;/th>
-&lt;th>Example&lt;/th>
-&lt;th>Explanation&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>agent&lt;/td>
-&lt;td>&lt;code>agent:44040760a19f5dc6&lt;/code>&lt;/td>
-&lt;td>agent is the identification token of the agent that performed the work. If no token is present, this value will be &lt;code>anonymous&lt;/code>.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>agent_version&lt;/td>
-&lt;td>&lt;code>agent_version:0.6.11&lt;/code>&lt;/td>
-&lt;td>agent_version is the configured &lt;code>NATLAS_VERSION&lt;/code> of the agent that reported the work. In &lt;code>0.6.x&lt;/code> this is used to determine how to render the scan data.&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
+&lt;p>These search terms pertain to the agent that performed the work.&lt;/p>
+&lt;h3 id="agent-1">agent&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>agent:44040760a19f5dc6&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> agent is the identification token of the agent that performed the work. If no token is present, this value will be &lt;code>anonymous&lt;/code>.&lt;/p>
+&lt;h3 id="agent_version">agent_version&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>agent_version:0.6.11&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> agent_version is the configured &lt;code>NATLAS_VERSION&lt;/code> of the agent that reported the work. In &lt;code>0.6.x&lt;/code> this is used to determine how to render the scan data.&lt;/p>
 &lt;h2 id="screenshots">Screenshots&lt;/h2>
-&lt;p>These search operators all focus on finding screenshots that meet specific criteria. You&amp;rsquo;ll notice that all of these are prepended with &lt;code>screenshots.&lt;/code>, which is how you specify the specific field in the document that you want to scan when it isn&amp;rsquo;t at the top level of the document. This will be a recurring theme for the rest of this documentation.&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Term&lt;/th>
-&lt;th>Example&lt;/th>
-&lt;th>Explanation&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>screenshots.host&lt;/td>
-&lt;td>&lt;code>screenshots.host:*.example.com&lt;/code>&lt;/td>
-&lt;td>Returns scan results that have a screenshot for the provided host. The host may be a DNS name or an IP address. The example query returns scan results for all subdomains of example.com (as determined by their PTR record) that have a screenshot.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>screenshots.port&lt;/td>
-&lt;td>&lt;code>screenshots.port:8089&lt;/code>&lt;/td>
-&lt;td>Returns scan results that have a screenshot for the specified port. The example query returns all scans that have a screenshot for port 8089.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>screenshots.service&lt;/td>
-&lt;td>&lt;code>screenshots.service:VNC&lt;/code>&lt;/td>
-&lt;td>Returns scan results that have a screenshot for the specified service. Note that these values are case sensitive and must be uppercase at this time. The currently supported services are &lt;code>HTTP&lt;/code>, &lt;code>HTTPS&lt;/code>, and &lt;code>VNC&lt;/code>.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>screenshots.hash&lt;/td>
-&lt;td>&lt;code>screenshots.hash:&amp;lt;sha256&amp;gt;&lt;/code>&lt;/td>
-&lt;td>Returns scan results that have a screenshot with the specified hash. This is helpful for finding all hosts that have an identical service running. Note that this is an exact match, not a fuzzy hash.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>screenshots.thumb_hash&lt;/td>
-&lt;td>&lt;code>screenshots.thumb_hash:&amp;lt;sha256&amp;gt;&lt;/code>&lt;/td>
-&lt;td>Returns scan results that have a screenshot whose thumbnail matches the specified hash. This is mostly equivalent to &lt;code>screenshots.hash&lt;/code> except it searches thumbnails instead of full size images.&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
+&lt;p>These search terms all focus on finding screenshots that meet specific criteria. You&amp;rsquo;ll notice that all of these are prepended with &lt;code>screenshots.&lt;/code>, which is how you specify the specific field in the document that you want to scan when it isn&amp;rsquo;t at the top level of the document. This will be a recurring theme for the rest of this documentation.&lt;/p>
+&lt;h3 id="screenshotshost">screenshots.host&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>screenshots.host:*.example.com&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> Returns scan results that have a screenshot for the provided host. The host may be a DNS name or an IP address. The example query returns scan results for all subdomains of example.com (as determined by their PTR record) that have a screenshot.&lt;/p>
+&lt;h3 id="screenshotsport">screenshots.port&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>screenshots.port:8089&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> Returns scan results that have a screenshot for the specified port. The example query returns all scans that have a screenshot for port 8089.&lt;/p>
+&lt;h3 id="screenshotsservice">screenshots.service&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>screenshots.service:VNC&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> Returns scan results that have a screenshot for the specified service. Note that these values are case sensitive and must be uppercase at this time. The currently supported services are &lt;code>HTTP&lt;/code>, &lt;code>HTTPS&lt;/code>, and &lt;code>VNC&lt;/code>.&lt;/p>
+&lt;h3 id="screenshotshash">screenshots.hash&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>screenshots.hash:&amp;lt;sha256&amp;gt;&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> Returns scan results that have a screenshot with the specified hash. This is helpful for finding all hosts that have an identical service running. Note that this is an exact match, not a fuzzy hash.&lt;/p>
+&lt;h3 id="screenshotsthumb_hash">screenshots.thumb_hash&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>screenshots.thumb_hash:&amp;lt;sha256&amp;gt;&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> Returns scan results that have a screenshot whose thumbnail matches the specified hash. This is mostly equivalent to &lt;code>screenshots.hash&lt;/code> except it searches thumbnails instead of full size images.&lt;/p>
 &lt;h2 id="ports">Ports&lt;/h2>
 &lt;p>Searching port data is probably the most important thing you&amp;rsquo;ll want to do with Natlas, but it can also be the most complex. Values in the ports structure are sometimes deeply nested and complicated to build queries for.&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Term&lt;/th>
-&lt;th>Example&lt;/th>
-&lt;th>Explanation&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>ports.id&lt;/td>
-&lt;td>&lt;code>ports.id:tcp.80&lt;/code>&lt;/td>
-&lt;td>This is the port id from nmap, which is a combination of the protocol and the port number. The example query searches for ports that have tcp port 80 open.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.port&lt;/td>
-&lt;td>&lt;code>ports.port:80&lt;/code>&lt;/td>
-&lt;td>This is the port number from nmap, without regard for the protocol. The example query searches for all hosts that have port 80 open, regardless of tcp or udp.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.protocol&lt;/td>
-&lt;td>&lt;code>ports.protocol:tcp&lt;/code>&lt;/td>
-&lt;td>This is the port protocol from nmap. The example query searches for all hosts that have a tcp port open, regardless of what number it is. Largely, this query is probably not going to be very helpful since all results will probably have a tcp port open.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.state&lt;/td>
-&lt;td>&lt;code>ports.state:open&lt;/code>&lt;/td>
-&lt;td>This is the port state from nmap. The example query searches for all hosts that have a port open. Again, probably not especially helpful.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.reason&lt;/td>
-&lt;td>&lt;code>ports.reason:syn-ack&lt;/code>&lt;/td>
-&lt;td>This is the reason the port is included by nmap. &lt;code>syn-ack&lt;/code> is probably going to be the most common, and therefore the least useful.&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.banner&lt;/td>
-&lt;td>&lt;code>ports.banner:Apache&lt;/code>&lt;/td>
-&lt;td>This searches the banner string produced by nmap. The example shows all hosts with an Apache service reported in the banner grab.&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
+&lt;h3 id="portsid">ports.id&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.id:tcp.80&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> This is the port id from nmap, which is a combination of the protocol and the port number. The example query searches for ports that have tcp port 80 open.&lt;/p>
+&lt;h3 id="portsport">ports.port&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.port:80&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> This is the port number from nmap, without regard for the protocol. The example query searches for all hosts that have port 80 open, regardless of tcp or udp.&lt;/p>
+&lt;h3 id="portsprotocol">ports.protocol&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.protocol:tcp&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> This is the port protocol from nmap. The example query searches for all hosts that have a tcp port open, regardless of what number it is. Largely, this query is probably not going to be very helpful since all results will probably have a tcp port open.&lt;/p>
+&lt;h3 id="portsstate">ports.state&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.state:open&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> This is the port state from nmap. The example query searches for all hosts that have a port open. Again, probably not especially helpful.&lt;/p>
+&lt;h3 id="portsreason">ports.reason&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.reason:syn-ack&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> This is the reason the port is included by nmap. &lt;code>syn-ack&lt;/code> is probably going to be the most common, and therefore the least useful.&lt;/p>
+&lt;h3 id="portsbanner">ports.banner&lt;/h3>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.banner:Apache&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> This searches the banner string produced by nmap. The example shows all hosts with an Apache service reported in the banner grab.&lt;/p>
 &lt;h3 id="service">Service&lt;/h3>
 &lt;p>Remember in the last section how I said that port data is complex and sometimes deeply nested, well, welcome to the first next layer. This section pertains to information about the service running on a port. Basically what this does is provides a more nuanced approach to searching the results of nmap&amp;rsquo;s service fingerprinting, rather than searching the text field &lt;code>ports.banner&lt;/code> from the previous section.&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Term&lt;/th>
-&lt;th>Example&lt;/th>
-&lt;th>Explanation&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>ports.service.name&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.service.product&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.service.version&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.service.ostype&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.service.conf&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.service.cpelist&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.service.method&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.service.extrainfo&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.service.tunnel&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
+&lt;h4 id="portsservicename">ports.service.name&lt;/h4>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;h4 id="portsserviceproduct">ports.service.product&lt;/h4>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;h4 id="portsserviceversion">ports.service.version&lt;/h4>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;h4 id="portsserviceostype">ports.service.ostype&lt;/h4>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;h4 id="portsserviceconf">ports.service.conf&lt;/h4>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;h4 id="portsservicecpelist">ports.service.cpelist&lt;/h4>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;h4 id="portsservicemethod">ports.service.method&lt;/h4>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;h4 id="portsserviceextrainfo">ports.service.extrainfo&lt;/h4>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;h4 id="portsservicetunnel">ports.service.tunnel&lt;/h4>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
 &lt;h3 id="scripts">Scripts&lt;/h3>
 &lt;p>Everything in this section involves searching the output of the nmap scripting engine. Most script outputs are stored as text blobs that you&amp;rsquo;ll have to search through.&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Term&lt;/th>
-&lt;th>Example&lt;/th>
-&lt;th>Explanation&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>ports.scripts.id&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.scripts.output&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table>
+&lt;h4 id="portsscriptsid">ports.scripts.id&lt;/h4>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;h4 id="portsscriptsoutput">ports.scripts.output&lt;/h4>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
 &lt;h3 id="ssl">SSL&lt;/h3>
 &lt;p>SSL Data is collected by the nmap scripting engine and is also available with the &lt;code>ports.scripts.id:ssl-cert&lt;/code> query, however these certificates are important enough, and complicated enough, to be parsed out into structured fields. But alas, SSL data is the most deeply nested of all of the search terms, so prepare yourselves.&lt;/p>
-&lt;table>
-&lt;thead>
-&lt;tr>
-&lt;th>Term&lt;/th>
-&lt;th>Example&lt;/th>
-&lt;th>Explanation&lt;/th>
-&lt;/tr>
-&lt;/thead>
-&lt;tbody>
-&lt;tr>
-&lt;td>ports.ssl.md5&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.ssl.sha1&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.ssl.notAfter&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.ssl.notBefore&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.ssl.sig_alg&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.ssl.pubkey.bits&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.ssl.pubkey.type&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.ssl.issuer.commonName&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.ssl.issuer.countryName&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.ssl.issuer.organizationName&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.ssl.subject.commonName&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;tr>
-&lt;td>ports.ssl.subject.altNames&lt;/td>
-&lt;td>&lt;/td>
-&lt;td>&lt;/td>
-&lt;/tr>
-&lt;/tbody>
-&lt;/table></description></item><item><title>Docs: Server Administration</title><link>/docs/tasks/server-administration/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/tasks/server-administration/</guid><description>
+&lt;h4 id="portssslmd5">ports.ssl.md5&lt;/h4>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;h4 id="portssslsha1">ports.ssl.sha1&lt;/h4>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;h4 id="portssslnotafter">ports.ssl.notAfter&lt;/h4>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;h4 id="portssslnotbefore">ports.ssl.notBefore&lt;/h4>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;h4 id="portssslsig_alg">ports.ssl.sig_alg&lt;/h4>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;h4 id="portssslpubkeybits">ports.ssl.pubkey.bits&lt;/h4>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;h4 id="portssslpubkeytype">ports.ssl.pubkey.type&lt;/h4>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;h4 id="portssslissuercommonname">ports.ssl.issuer.commonName&lt;/h4>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;h4 id="portssslissuercountryname">ports.ssl.issuer.countryName&lt;/h4>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;h4 id="portssslissuerorganizationname">ports.ssl.issuer.organizationName&lt;/h4>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;h4 id="portssslsubjectcommonname">ports.ssl.subject.commonName&lt;/h4>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;h4 id="portssslsubjectaltnames">ports.ssl.subject.altNames&lt;/h4>
+&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p></description></item><item><title>Docs: Server Administration</title><link>/docs/tasks/server-administration/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/tasks/server-administration/</guid><description>
 &lt;div class="pageinfo pageinfo-primary">
 &lt;p>This is a placeholder page. Replace it with your own content.&lt;/p>
 &lt;/div>
