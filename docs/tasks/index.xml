@@ -95,78 +95,78 @@
 &lt;h3 id="service">Service&lt;/h3>
 &lt;p>Remember in the last section how I said that port data is complex and sometimes deeply nested, well, welcome to the first next layer. This section pertains to information about the service running on a port. Basically what this does is provides a more nuanced approach to searching the results of nmap&amp;rsquo;s service fingerprinting, rather than searching the text field &lt;code>ports.banner&lt;/code> from the previous section.&lt;/p>
 &lt;h4 id="portsservicename">ports.service.name&lt;/h4>
-&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.service.name:http&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> This is the service name that nmap determines from the port. With service fingerprinting enabled, this may originate from the fingerprints. Otherwise it will fall back to what&amp;rsquo;s in the provided services database. The example will find hosts that have at least one http service running.&lt;/p>
 &lt;h4 id="portsserviceproduct">ports.service.product&lt;/h4>
-&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.service.product:Minecraft&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> This is the product that nmap determines from the service fingerprint. The example query will find instances of Minecraft running (notice that this is case sensitive).&lt;/p>
 &lt;h4 id="portsserviceversion">ports.service.version&lt;/h4>
-&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.service.version:1.16.1&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> This is the product version that nmap determines from the service fingerprint. The example query will find anything with a version string of &lt;code>1.16.1&lt;/code>&lt;/p>
 &lt;h4 id="portsserviceostype">ports.service.ostype&lt;/h4>
-&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.service.ostype:Linux&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> This is the OS type determined by nmap. The example query will find anything that is determined to be Linux.&lt;/p>
 &lt;h4 id="portsserviceconf">ports.service.conf&lt;/h4>
-&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.service.conf:&amp;gt;9&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> This is the confidence level of nmap that the service it identified is actually that service. This is an integer value between 0 and 10, with 10 being the most confident about the accuracy of the reported service.&lt;/p>
 &lt;h4 id="portsservicecpelist">ports.service.cpelist&lt;/h4>
-&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.service.cpelist:&amp;quot;cpe:/a:apache:http_server:2.4.29&amp;quot;&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> This is the &lt;a href="https://nvd.nist.gov/products/cpe">CPE&lt;/a> identifier for the identified service. The example shows us Apache http servers running version 2.4.29.&lt;/p>
 &lt;h4 id="portsservicemethod">ports.service.method&lt;/h4>
-&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.service.method:probed&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> This is the method that nmap used to determine what the service was. &lt;code>probed&lt;/code> means that it was the result of the probes, &lt;code>table&lt;/code> means that it was grabbed from the services database.&lt;/p>
 &lt;h4 id="portsserviceextrainfo">ports.service.extrainfo&lt;/h4>
-&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.service.extrainfo:&amp;quot;ubuntu&amp;quot;&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> Extraneous information retrieved by the nmap service fingerprint that doesn&amp;rsquo;t fit directly into one of the other categories. The example looks for instances of ubuntu, indicating that it&amp;rsquo;s likely to be an Ubuntu linux server.&lt;/p>
 &lt;h4 id="portsservicetunnel">ports.service.tunnel&lt;/h4>
-&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.service.tunnel:ssl&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> Whether or not the host has a port that uses a tunnel, such as ssl.&lt;/p>
 &lt;h3 id="scripts">Scripts&lt;/h3>
 &lt;p>Everything in this section involves searching the output of the nmap scripting engine. Most script outputs are stored as text blobs that you&amp;rsquo;ll have to search through.&lt;/p>
 &lt;h4 id="portsscriptsid">ports.scripts.id&lt;/h4>
-&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.scripts.id:http-git&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> Look for hosts that have ports open where a specific script was executed. The example will look for hosts that have results for the &lt;code>http-git&lt;/code> script (looking for &lt;code>/.git&lt;/code> folders in http web roots)&lt;/p>
 &lt;h4 id="portsscriptsoutput">ports.scripts.output&lt;/h4>
-&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.scripts.output:&amp;quot;github.com&amp;quot;&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> Perform string searches on the output of scripts. The example will look for script output where &amp;ldquo;github.com&amp;rdquo; appears, such as in the previous &lt;code>http-git&lt;/code> example.&lt;/p>
 &lt;h3 id="ssl">SSL&lt;/h3>
 &lt;p>SSL Data is collected by the nmap scripting engine and is also available with the &lt;code>ports.scripts.id:ssl-cert&lt;/code> query, however these certificates are important enough, and complicated enough, to be parsed out into structured fields. But alas, SSL data is the most deeply nested of all of the search terms, so prepare yourselves.&lt;/p>
 &lt;h4 id="portssslmd5">ports.ssl.md5&lt;/h4>
-&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.ssl.md5:da979cf70ae708ffb1d8a247a0cf5acb&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> Looks for hosts that have an ssl certificate with a specific md5 hash.&lt;/p>
 &lt;h4 id="portssslsha1">ports.ssl.sha1&lt;/h4>
-&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.ssl.sha1:28cfccaf54b309b6d7c58b400ce8262f3121a495&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> Looks for hosts that have an ssl certificate with a specific sha1 hash.&lt;/p>
 &lt;h4 id="portssslnotafter">ports.ssl.notAfter&lt;/h4>
-&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.ssl.notAfter:&amp;lt;2020-08-16&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> Look for hosts that have ssl certificates with a particular expiration date. The example looks for certificates with an expiration date prior to August 16th, 2020.&lt;/p>
 &lt;h4 id="portssslnotbefore">ports.ssl.notBefore&lt;/h4>
-&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.ssl.notBefore:&amp;gt;2020-01-01&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> Look for hosts that have ssl certificates with a particular notBefore validity date. The example looks for certificates that were issued after January 1st, 2020.&lt;/p>
 &lt;h4 id="portssslsig_alg">ports.ssl.sig_alg&lt;/h4>
-&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.ssl.sig_alg:sha256WithRSAEncryption&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> Look for hosts that use a specific signature algorithm for the ssl certificate. The example looks for signature algorithm &lt;code>sha256WithRSAEncryption&lt;/code>.&lt;/p>
 &lt;h4 id="portssslpubkeybits">ports.ssl.pubkey.bits&lt;/h4>
-&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.ssl.pubkey.bits:&amp;lt;2048&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> Look for hosts that have a pubkey with a particular size. The example looks for hosts that have pubkeys that are less than a 2048-bit key.&lt;/p>
 &lt;h4 id="portssslpubkeytype">ports.ssl.pubkey.type&lt;/h4>
-&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.ssl.pubkey.type:ec&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> Look for hosts that use an ssl pubkey of a specific type. The example looks for ssl pubkeys using Elliptic Curve (ec).&lt;/p>
 &lt;h4 id="portssslissuercommonname">ports.ssl.issuer.commonName&lt;/h4>
-&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.ssl.issuer.commonName:&amp;quot;Let's Encrypt Authority X3&amp;quot;&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> Look for hosts that have a certificate issued by a specific issuer. The example looks for certificates issued by Let&amp;rsquo;s Encrypt&amp;rsquo;s Authority X3 issuer.&lt;/p>
 &lt;h4 id="portssslissuercountryname">ports.ssl.issuer.countryName&lt;/h4>
-&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.ssl.issuer.countryName:us&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> Look for hosts that have a certificate issued by an issuer in a specific country. The example looks for certificates issued by an issuer in the United States.&lt;/p>
 &lt;h4 id="portssslissuerorganizationname">ports.ssl.issuer.organizationName&lt;/h4>
-&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.ssl.issuer.organizationName:&amp;quot;Let's Encrypt&amp;quot;&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> Look for hosts that have a certificate issued by a specific organization. The example looks for certificates issued by Let&amp;rsquo;s Encrypt.&lt;/p>
 &lt;h4 id="portssslsubjectcommonname">ports.ssl.subject.commonName&lt;/h4>
-&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.ssl.subject.commonName:*.example.com&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> Look for hosts that have a certificate issued to a specific subject. The example looks for certificates issued to subdomains of example.com.&lt;/p>
 &lt;h4 id="portssslsubjectaltnames">ports.ssl.subject.altNames&lt;/h4>
-&lt;p>&lt;strong>Example:&lt;/strong>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong>&lt;/p></description></item><item><title>Docs: Server Administration</title><link>/docs/tasks/server-administration/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/tasks/server-administration/</guid><description>
+&lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.ssl.subject.altNames:*.example.com&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> Look for hosts that have a certificate with Subject Alternate Names for a specific subject. The example looks for certificates issued that are also valid for subdomains of example.com.&lt;/p></description></item><item><title>Docs: Server Administration</title><link>/docs/tasks/server-administration/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/tasks/server-administration/</guid><description>
 &lt;p>There are a handful of settings provided by the &lt;code>/admin&lt;/code> page that control certain behaviors that you may want to easily be able to change without restarting the server, such as the custom branding next to the logo, or whether or not users have to login to view the results.&lt;/p>
 &lt;p>These options are pretty self explanatory, but this is what they look like:&lt;/p>
 &lt;p>&lt;img src="https://i.imgur.com/Zw1f8Q6.png" alt="Natlas Admin Panel">&lt;/p></description></item></channel></rss>
