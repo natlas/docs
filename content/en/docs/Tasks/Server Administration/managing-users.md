@@ -1,7 +1,7 @@
 ---
 title: "Managing Users"
 linkTitle: "Managing Users"
-date: 2017-01-05
+date: 2020-08-16
 weight: 1
 description: >
   Learn about the tools available to manage your users

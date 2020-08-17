@@ -1,7 +1,7 @@
 ---
 title: "Server Administration"
 linkTitle: "Server Administration"
-date: 2017-01-05
+date: 2020-08-16
 description: >
   Details on how to configure your Natlas server
 ---

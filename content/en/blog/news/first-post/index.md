@@ -1,5 +1,5 @@
 ---
-date: 2020-08-14
+date: 2020-08-16
 title: "Announcing Natlas Documentation"
 linkTitle: "Announcing Natlas Documentation"
 description: "Natlas is several years old at this point, it's about time we provided some proper documentation."
