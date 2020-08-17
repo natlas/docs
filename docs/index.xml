@@ -237,16 +237,26 @@
 &lt;/tr>
 &lt;/tbody>
 &lt;/table></description></item><item><title>Docs: Managing Users</title><link>/docs/tasks/server-administration/managing-users/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/tasks/server-administration/managing-users/</guid><description>
-&lt;div class="pageinfo pageinfo-primary">
-&lt;p>This is a placeholder page. Replace it with your own content.&lt;/p>
-&lt;/div>
 &lt;h2 id="adding-your-first-user">Adding Your First User&lt;/h2>
+&lt;p>Your first user is the most important for your Natlas server. You&amp;rsquo;ll want to create yourself an admin account so that you can manage your deployment. The first user must be &lt;a href="#inviting-by-cli">invited via cli&lt;/a>. All container references for CLI assume that your container is named &lt;code>natlas_server&lt;/code>.&lt;/p>
 &lt;h2 id="inviting-new-users">Inviting New Users&lt;/h2>
 &lt;h3 id="inviting-by-cli">Inviting by CLI&lt;/h3>
+&lt;p>Inviting via CLI is pretty easy but has one small quirk - you have to ensure the &lt;code>SERVER_NAME&lt;/code> environment variable is set for your server so that invitation links can be generated correctly. If it&amp;rsquo;s not set, the command will fail.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ docker &lt;span style="color:#204a87">exec&lt;/span> -e &lt;span style="color:#000">SERVER_NAME&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>example.com -it natlas_server flask user new --admin
+Accept invitation: http://example.com/auth/invite?token&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>this-is-an-invalid-example-token
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>You can then take this invitation into your browser and create your account.&lt;/p>
 &lt;h3 id="inviting-by-web">Inviting by Web&lt;/h3>
+&lt;p>If you already have an account, inviting a new user via the web interface is also very easy at &lt;code>/admin/users&lt;/code>. Simply add their email address in the text box and hit Invite User.&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/y8a1AD4.png" alt="Invite Users">&lt;/p>
 &lt;h2 id="promoting-a-user">Promoting A User&lt;/h2>
+&lt;p>Promoting a user means to change their role from a normal user to an admin.&lt;/p>
 &lt;h3 id="promoting-by-cli">Promoting by CLI&lt;/h3>
-&lt;h3 id="promoting-by-web">Promoting by Web&lt;/h3></description></item><item><title>Docs: Configuring Natlas Agent</title><link>/docs/configuration/agent/</link><pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate><guid>/docs/configuration/agent/</guid><description>
+&lt;p>Promoting a user via CLI requires two things: Access to the docker container and the email address of the user you want to promote.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">$ docker &lt;span style="color:#204a87">exec&lt;/span> -it natlas_server flask user role --promote user@example.com
+user@example.com is now an admin
+&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="promoting-by-web">Promoting by Web&lt;/h3>
+&lt;p>Promoting a user on the web panel is super easy as long as you already have an admin account. Simply find their email address in the &lt;code>/admin/users&lt;/code> page and click the Promote button.&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/1HRYXUW.png" alt="Promoting a user">&lt;/p></description></item><item><title>Docs: Configuring Natlas Agent</title><link>/docs/configuration/agent/</link><pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate><guid>/docs/configuration/agent/</guid><description>
 &lt;h2 id="environment-config">Environment Config&lt;/h2>
 &lt;p>All agent configurations are controlled via environment variables. To make modifications to your agent, you can modify environment variables to match your specifications. These options should be placed in a file called &lt;code>.env&lt;/code> that gets mounted into your container in &lt;code>/opt/natlas/natlas-agent/.env&lt;/code>.&lt;/p>
 &lt;h3 id="server-communication">Server Communication&lt;/h3>
