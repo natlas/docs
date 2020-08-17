@@ -198,57 +198,57 @@ Remember in the last section how I said that port data is complex and sometimes 
 
 #### ports.service.name
 
- **Example:**
+ **Example:** `ports.service.name:http`
 
- **Description:**
+ **Description:** This is the service name that nmap determines from the port. With service fingerprinting enabled, this may originate from the fingerprints. Otherwise it will fall back to what's in the provided services database. The example will find hosts that have at least one http service running.
 
 #### ports.service.product
 
- **Example:**
+ **Example:** `ports.service.product:Minecraft`
 
- **Description:**
+ **Description:** This is the product that nmap determines from the service fingerprint. The example query will find instances of Minecraft running (notice that this is case sensitive).
 
 #### ports.service.version
 
- **Example:**
+ **Example:** `ports.service.version:1.16.1`
 
- **Description:**
+ **Description:** This is the product version that nmap determines from the service fingerprint. The example query will find anything with a version string of `1.16.1`
 
 #### ports.service.ostype
 
- **Example:**
+ **Example:** `ports.service.ostype:Linux`
 
- **Description:**
+ **Description:** This is the OS type determined by nmap. The example query will find anything that is determined to be Linux.
 
 #### ports.service.conf
 
- **Example:**
+ **Example:** `ports.service.conf:>9`
 
- **Description:**
+ **Description:** This is the confidence level of nmap that the service it identified is actually that service. This is an integer value between 0 and 10, with 10 being the most confident about the accuracy of the reported service.
 
 #### ports.service.cpelist
 
- **Example:**
+ **Example:** `ports.service.cpelist:"cpe:/a:apache:http_server:2.4.29"`
 
- **Description:**
+ **Description:** This is the [CPE](https://nvd.nist.gov/products/cpe) identifier for the identified service. The example shows us Apache http servers running version 2.4.29.
 
 #### ports.service.method
 
- **Example:**
+ **Example:** `ports.service.method:probed`
 
- **Description:**
+ **Description:** This is the method that nmap used to determine what the service was. `probed` means that it was the result of the probes, `table` means that it was grabbed from the services database.
 
 #### ports.service.extrainfo
 
- **Example:**
+ **Example:** `ports.service.extrainfo:"ubuntu"`
 
- **Description:**
+ **Description:** Extraneous information retrieved by the nmap service fingerprint that doesn't fit directly into one of the other categories. The example looks for instances of ubuntu, indicating that it's likely to be an Ubuntu linux server.
 
 #### ports.service.tunnel
 
- **Example:**
+ **Example:** `ports.service.tunnel:ssl`
 
- **Description:**
+ **Description:** Whether or not the host has a port that uses a tunnel, such as ssl.
 
 ### Scripts
 
@@ -256,15 +256,15 @@ Everything in this section involves searching the output of the nmap scripting e
 
 #### ports.scripts.id
 
- **Example:**
+ **Example:** `ports.scripts.id:http-git`
 
- **Description:**
+ **Description:** Look for hosts that have ports open where a specific script was executed. The example will look for hosts that have results for the `http-git` script (looking for `/.git` folders in http web roots)
 
 #### ports.scripts.output
 
- **Example:**
+ **Example:** `ports.scripts.output:"github.com"`
 
- **Description:**
+ **Description:** Perform string searches on the output of scripts. The example will look for script output where "github.com" appears, such as in the previous `http-git` example.
 
 ### SSL
 
@@ -272,72 +272,72 @@ SSL Data is collected by the nmap scripting engine and is also available with th
 
 #### ports.ssl.md5
 
- **Example:**
+ **Example:** `ports.ssl.md5:da979cf70ae708ffb1d8a247a0cf5acb`
 
- **Description:**
+ **Description:** Looks for hosts that have an ssl certificate with a specific md5 hash.
 
 #### ports.ssl.sha1
 
- **Example:**
+ **Example:** `ports.ssl.sha1:28cfccaf54b309b6d7c58b400ce8262f3121a495`
 
- **Description:**
+ **Description:** Looks for hosts that have an ssl certificate with a specific sha1 hash.
 
 #### ports.ssl.notAfter
 
- **Example:**
+ **Example:** `ports.ssl.notAfter:<2020-08-16`
 
- **Description:**
+ **Description:** Look for hosts that have ssl certificates with a particular expiration date. The example looks for certificates with an expiration date prior to August 16th, 2020.
 
 #### ports.ssl.notBefore
 
- **Example:**
+ **Example:** `ports.ssl.notBefore:>2020-01-01`
 
- **Description:**
+ **Description:** Look for hosts that have ssl certificates with a particular notBefore validity date. The example looks for certificates that were issued after January 1st, 2020.
 
 #### ports.ssl.sig_alg
 
- **Example:**
+ **Example:** `ports.ssl.sig_alg:sha256WithRSAEncryption`
 
- **Description:**
+ **Description:** Look for hosts that use a specific signature algorithm for the ssl certificate. The example looks for signature algorithm `sha256WithRSAEncryption`.
 
 #### ports.ssl.pubkey.bits
 
- **Example:**
+ **Example:** `ports.ssl.pubkey.bits:<2048`
 
- **Description:**
+ **Description:** Look for hosts that have a pubkey with a particular size. The example looks for hosts that have pubkeys that are less than a 2048-bit key.
 
 #### ports.ssl.pubkey.type
 
- **Example:**
+ **Example:** `ports.ssl.pubkey.type:ec`
 
- **Description:**
+ **Description:** Look for hosts that use an ssl pubkey of a specific type. The example looks for ssl pubkeys using Elliptic Curve (ec).
 
 #### ports.ssl.issuer.commonName
 
- **Example:**
+ **Example:** `ports.ssl.issuer.commonName:"Let's Encrypt Authority X3"`
 
- **Description:**
+ **Description:** Look for hosts that have a certificate issued by a specific issuer. The example looks for certificates issued by Let's Encrypt's Authority X3 issuer.
 
 #### ports.ssl.issuer.countryName
 
- **Example:**
+ **Example:** `ports.ssl.issuer.countryName:us`
 
- **Description:**
+ **Description:** Look for hosts that have a certificate issued by an issuer in a specific country. The example looks for certificates issued by an issuer in the United States.
 
 #### ports.ssl.issuer.organizationName
 
- **Example:**
+ **Example:** `ports.ssl.issuer.organizationName:"Let's Encrypt"`
 
- **Description:**
+ **Description:** Look for hosts that have a certificate issued by a specific organization. The example looks for certificates issued by Let's Encrypt.
 
 #### ports.ssl.subject.commonName
 
- **Example:**
+ **Example:** `ports.ssl.subject.commonName:*.example.com`
 
- **Description:**
+ **Description:** Look for hosts that have a certificate issued to a specific subject. The example looks for certificates issued to subdomains of example.com.
 
 #### ports.ssl.subject.altNames
 
- **Example:**
+ **Example:** `ports.ssl.subject.altNames:*.example.com`
 
- **Description:**
+ **Description:** Look for hosts that have a certificate with Subject Alternate Names for a specific subject. The example looks for certificates issued that are also valid for subdomains of example.com.

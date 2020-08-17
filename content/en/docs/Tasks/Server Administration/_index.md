@@ -6,8 +6,8 @@ description: >
   Details on how to configure your Natlas server
 ---
 
-{{% pageinfo %}}
-This is a placeholder page. Replace it with your own content.
-{{% /pageinfo %}}
+There are a handful of settings provided by the `/admin` page that control certain behaviors that you may want to easily be able to change without restarting the server, such as the custom branding next to the logo, or whether or not users have to login to view the results.
 
-This is the section landing page.
+These options are pretty self explanatory, but this is what they look like:
+
+![Natlas Admin Panel](https://i.imgur.com/Zw1f8Q6.png)
