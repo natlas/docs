@@ -20,6 +20,31 @@
 &lt;h3 id="exporting-by-web">Exporting by Web&lt;/h3>
 &lt;h2 id="disabling-scope">Disabling Scope&lt;/h2></description></item><item><title>Docs: Managing Agents</title><link>/docs/tasks/server-administration/managing-agents/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/tasks/server-administration/managing-agents/</guid><description>
 &lt;h2 id="configuring-port-coverage">Configuring Port Coverage&lt;/h2>
-&lt;h2 id="configuring-nmap">Configuring Nmap&lt;/h2>
-&lt;h2 id="enabling-web-screenshots">Enabling Web Screenshots&lt;/h2>
-&lt;h2 id="enabling-vnc-screenshots">Enabling VNC Screenshots&lt;/h2></description></item></channel></rss>
+&lt;p>Port coverage is configured via a server side &lt;a href="https://nmap.org/book/nmap-services.html">nmap-services&lt;/a> file, which is used by nmap to know what ports to scan. Natlas maintains it&amp;rsquo;s &lt;a href="https://github.com/natlas/natlas/blob/main/natlas-server/defaults/natlas-services">own version of this file&lt;/a>, which is shipped with the application. We use it to add new common or interesting ports that the default nmap-services doesn&amp;rsquo;t cover. You&amp;rsquo;re welcome to add or remove as many ports as you want from this file.&lt;/p>
+&lt;p>To access this on your server, visit the &lt;code>/admin/services&lt;/code> endpoint while logged in with an admin account. It&amp;rsquo;ll look something like this:&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/I3UdVfJ.png" alt="Natlas Services Page">&lt;/p>
+&lt;p>From here, you can add individual new services via the form, or you can upload a new services file to completely replace the current one.&lt;/p>
+&lt;h2 id="configuring-scans">Configuring Scans&lt;/h2>
+&lt;p>Everything about scans, except what ports are covered, can be found in the &lt;code>/admin/agents&lt;/code> url. This includes what nmap settings to use as well as whether or not you want them to collect screenshots of web services or vnc services.&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/9G7UeZp.png" alt="Agent configuration page">&lt;/p>
+&lt;h3 id="supported-nmap-options">Supported Nmap Options&lt;/h3>
+&lt;p>Natlas doesn&amp;rsquo;t support raw nmap command editing, because it makes a goal to not allow arbitrary execution on the agents. As such, we currently only support a limited subset of nmap options. They are as follows:&lt;/p>
+&lt;ul>
+&lt;li>&lt;a href="https://nmap.org/book/man-version-detection.html">Version Detection&lt;/a> (-sV)&lt;/li>
+&lt;li>&lt;a href="https://nmap.org/book/man-os-detection.html">OS Detection&lt;/a> (-O)&lt;/li>
+&lt;li>&lt;a href="https://nmap.org/book/man-os-detection.html">Limit OS Scan&lt;/a> (&amp;ndash;osscan-limit)&lt;/li>
+&lt;li>&lt;a href="https://nmap.org/book/nse-usage.html">Enable Scripting Engine&lt;/a> (&amp;ndash;script)&lt;/li>
+&lt;li>&lt;a href="https://nmap.org/book/man-output.html">Report Open Ports Only&lt;/a> (&amp;ndash;open)&lt;/li>
+&lt;li>&lt;a href="https://nmap.org/book/man-host-discovery.html">Bypass Host Discovery&lt;/a> (-Pn)&lt;/li>
+&lt;li>&lt;a href="https://nmap.org/book/scan-methods-udp-scan.html">Scan TCP+UDP&lt;/a> (-sUS) &lt;strong>Note:&lt;/strong> This requires your services file to have udp ports in it.&lt;/li>
+&lt;/ul>
+&lt;h3 id="nmap-scripts">Nmap Scripts&lt;/h3>
+&lt;p>The list of scripts to scan is stored separately so that you can easily add and remove scripts. This field allows individual script names as well as script categories. Check out the &lt;a href="https://nmap.org/book/man-nse.html">nmap documentation&lt;/a> for more information about this, or checkout the &lt;a href="https://nmap.org/nsedoc/lib/nmap.html">NSE Library&lt;/a> for the list of scripts that are shipped with nmap.&lt;/p>
+&lt;p>At this time, Natlas does not support sending custom scripts to the agents due to the security design of the agents. Custom NSE scripts effectively allows arbitrary lua execution on the agent, and we&amp;rsquo;re not trying to build a botnet. If you own all of the agents in your natlas deployment, you could manually distribute your custom scripts to the agents and then enable it in the server.&lt;/p>
+&lt;p>&lt;strong>Important:&lt;/strong> If you specify a script that doesn&amp;rsquo;t exist, all of your scan data will start to automatically fail. The agent currently doesn&amp;rsquo;t maintain a list of scripts it knows about, nor does it parse the error output when nmap fails to initialize.&lt;/p>
+&lt;h3 id="screenshots">Screenshots&lt;/h3>
+&lt;p>Natlas currently supports screenshotting two service types: HTTP and VNC.&lt;/p>
+&lt;h4 id="http-screenshots">HTTP Screenshots&lt;/h4>
+&lt;p>Natlas uses aquatone for web screenshots, which automatically reads the output of the nmap file using aquatone&amp;rsquo;s &lt;code>-nmap&lt;/code> flag. This means that it will attempt to screenshot hostnames if available, and IP addresses otherwise. Natlas currently does not support any custom flags for aquatone. It only supports a process timeout value, which can be used to keep your agents from lingering too long on any given task. If the timeout value is reached, the process will be killed and the output will not be processed.&lt;/p>
+&lt;h4 id="vnc-screenshots">VNC Screenshots&lt;/h4>
+&lt;p>Natlas currently uses vncsnapshot for vnc screenshots, and only on port 5900. A future version will support VNC on arbitrary ports and will hopefully provide more control over the screenshots you get to take. Like HTTP Screenshots, VNC screenshots also only support a process timeout value, after which the process will be killed and the output abandoned.&lt;/p></description></item></channel></rss>
