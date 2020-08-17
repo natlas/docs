@@ -380,7 +380,35 @@
 &lt;span style="color:#000">NATLAS_MAX_THREADS&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">25&lt;/span>
 &lt;span style="color:#000">NATLAS_AGENT_ID&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>this-is-example-id
 &lt;span style="color:#000">NATLAS_AGENT_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>this-is-obviously-an-example-token
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Searching Natlas</title><link>/docs/tasks/searching-natlas/</link><pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate><guid>/docs/tasks/searching-natlas/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: Managing Scope</title><link>/docs/tasks/server-administration/managing-scope/</link><pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate><guid>/docs/tasks/server-administration/managing-scope/</guid><description>
+&lt;h2 id="importing-scope">Importing Scope&lt;/h2>
+&lt;p>Before your Natlas deployment can do anything useful, you&amp;rsquo;ll need to import some scope addresses for your agents to scan. Natlas provides two paths for doing this: CLI and Web. The CLI demos in this documentation assumes that your natlas server container is named &lt;code>natlas_server&lt;/code>.&lt;/p>
+&lt;h3 id="the-scope-file">The Scope File&lt;/h3>
+&lt;p>Your scope file will be a csv file with each row representing one CIDR network, optionally followed by a list of comma-separated tags to describe that CIDR network. E.g.&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-text" data-lang="text">192.168.0.0/16,home,class-b
+172.16.0.0/16,vpn,class-b
+10.0.0.0/8,overlay,class-a,super cool network
+192.168.0.100/32,pihole
+192.168.100.1/32,modem
+192.168.0.1/32,router
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>An observant reader will notice that the last 3 addresses all fall within the range of the first network. This is fine, more specific addresses will be tracked individually so that you can tag them with whatever you want. Just note that if you later choose to exclude the &lt;code>192.168.0.0/16&lt;/code> network, all addresses that fall inside that range will also be excluded, regardless if they are also individual items in the rest of the scope.&lt;/p>
+&lt;h3 id="importing-by-cli">Importing by CLI&lt;/h3>
+&lt;p>Importing via CLI is pretty straight forward but requires putting your scope file into the persistent mounted directory. Since the server requires this directory to store media files already, it shouldn&amp;rsquo;t be a big deal to drop your bootstrap scope into that directory. The data will be available in &lt;code>/data&lt;/code> inside the container.&lt;/p>
+&lt;p>We put our scope file into our persistent storage directory and then we can import it with flask like so:&lt;/p>
+&lt;div class="highlight">&lt;pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4">&lt;code class="language-bash" data-lang="bash">docker &lt;span style="color:#204a87">exec&lt;/span> -it natlas_server flask scope import --verbose /data/myscopefile.txt &amp;gt; /data/import_results.json
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Remember, the &lt;code>/data/myscopefile.txt&lt;/code> and &lt;code>/data/import_results.json&lt;/code> are relative to the docker container, not to the host filesystem.&lt;/p>
+&lt;h3 id="importing-by-web">Importing by Web&lt;/h3>
+&lt;p>Maybe manipulating the flask application through the docker layer is too verbose and you don&amp;rsquo;t want to do it. That&amp;rsquo;s fine and dandy, Natlas provides a web interface for admin users to import scope items individually or in bulk at the &lt;code>/admin/scope&lt;/code> url. The bulk import works the same way as the file import on CLI, except you paste the contents of the file rather than uploading the file itself.&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/KWByFj5.png" alt="Scope Management Panel">&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/ODGWNVB.png" alt="Scope Import">&lt;/p>
+&lt;h2 id="exporting-scope">Exporting Scope&lt;/h2>
+&lt;h3 id="exporting-by-cli">Exporting by CLI&lt;/h3>
+&lt;p>The CLI claims to support exporting scope, however there is currently a bug (&lt;a href="https://github.com/natlas/natlas/issues/426">#246&lt;/a>) that prevents this from working correctly when your scope items are tagged.&lt;/p>
+&lt;h3 id="exporting-by-web">Exporting by Web&lt;/h3>
+&lt;p>As you can see above in the scope management panel, there&amp;rsquo;s a simple export button. You can also reach this directly by visiting &lt;code>/admin/export/scope&lt;/code> while logged in as an Admin. This produces a simple line-separated list of in-scope networks.&lt;/p>
+&lt;h2 id="disabling-scope">Disabling Scope&lt;/h2>
+&lt;p>Disabling scope is a way to remove specific addresses or subnets from being scanned. This can be important if you&amp;rsquo;re scanning things that are likely to tip over when being touched by nmap, or things that are deemed &amp;ldquo;too risky to scan.&amp;rdquo; You can easily add new network blocks to the exclusion list, or simply move existing network blocks.&lt;/p>
+&lt;p>&lt;img src="https://i.imgur.com/o7NGFHa.png" alt="Disabling existing scope">&lt;/p></description></item><item><title>Docs: Searching Natlas</title><link>/docs/tasks/searching-natlas/</link><pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate><guid>/docs/tasks/searching-natlas/</guid><description>
 &lt;p>Natlas search is powered by &lt;a href="https://www.elastic.co/">Elasticsearch&lt;/a>, and the syntax that the search box uses is currently equivalent to an Elastic &lt;a href="https://www.elastic.co/guide/en/elasticsearch/reference/current/query-dsl-query-string-query.html">Query string query&lt;/a>. For a deeper understanding of the query string syntax, please consult that page. A key thing to remember when building queries is that, by default, more search terms results in a narrower result set. Each additional search term serves to further reduce the result set.&lt;/p>
 &lt;p>The Natlas elastic mapping currently makes a lot of things available to you to search, but it may be less than intuitive or unnecessarily verbose because there are no abstractions or shortcuts for common queries. So this page should help you to build more effective queries.&lt;/p>
 &lt;p>If you choose not to specify any fields to query for, it will default to searching the &lt;code>nmap_data&lt;/code> field, which is roughly equivalent to grepping through your &lt;code>scan.nmap&lt;/code> files.&lt;/p>
@@ -548,17 +576,7 @@
 &lt;p>&lt;strong>Description:&lt;/strong> Look for hosts that have a certificate issued to a specific subject. The example looks for certificates issued to subdomains of example.com.&lt;/p>
 &lt;h4 id="portssslsubjectaltnames">ports.ssl.subject.altNames&lt;/h4>
 &lt;p>&lt;strong>Example:&lt;/strong> &lt;code>ports.ssl.subject.altNames:*.example.com&lt;/code>&lt;/p>
-&lt;p>&lt;strong>Description:&lt;/strong> Look for hosts that have a certificate with Subject Alternate Names for a specific subject. The example looks for certificates issued that are also valid for subdomains of example.com.&lt;/p></description></item><item><title>Docs: Managing Scope</title><link>/docs/tasks/server-administration/managing-scope/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/tasks/server-administration/managing-scope/</guid><description>
-&lt;div class="pageinfo pageinfo-primary">
-&lt;p>This is a placeholder page.&lt;/p>
-&lt;/div>
-&lt;h2 id="importing-scope">Importing Scope&lt;/h2>
-&lt;h3 id="importing-by-cli">Importing by CLI&lt;/h3>
-&lt;h3 id="importing-by-web">Importing by Web&lt;/h3>
-&lt;h2 id="exporting-scope">Exporting Scope&lt;/h2>
-&lt;h3 id="exporting-by-cli">Exporting by CLI&lt;/h3>
-&lt;h3 id="exporting-by-web">Exporting by Web&lt;/h3>
-&lt;h2 id="disabling-scope">Disabling Scope&lt;/h2></description></item><item><title>Docs: Managing Agents</title><link>/docs/tasks/server-administration/managing-agents/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/tasks/server-administration/managing-agents/</guid><description>
+&lt;p>&lt;strong>Description:&lt;/strong> Look for hosts that have a certificate with Subject Alternate Names for a specific subject. The example looks for certificates issued that are also valid for subdomains of example.com.&lt;/p></description></item><item><title>Docs: Managing Agents</title><link>/docs/tasks/server-administration/managing-agents/</link><pubDate>Thu, 05 Jan 2017 00:00:00 +0000</pubDate><guid>/docs/tasks/server-administration/managing-agents/</guid><description>
 &lt;h2 id="configuring-port-coverage">Configuring Port Coverage&lt;/h2>
 &lt;p>Port coverage is configured via a server side &lt;a href="https://nmap.org/book/nmap-services.html">nmap-services&lt;/a> file, which is used by nmap to know what ports to scan. Natlas maintains it&amp;rsquo;s &lt;a href="https://github.com/natlas/natlas/blob/main/natlas-server/defaults/natlas-services">own version of this file&lt;/a>, which is shipped with the application. We use it to add new common or interesting ports that the default nmap-services doesn&amp;rsquo;t cover. You&amp;rsquo;re welcome to add or remove as many ports as you want from this file.&lt;/p>
 &lt;p>To access this on your server, visit the &lt;code>/admin/services&lt;/code> endpoint while logged in with an admin account. It&amp;rsquo;ll look something like this:&lt;/p>
