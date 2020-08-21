@@ -41,6 +41,7 @@ All agent configurations are controlled via environment variables. To make modif
 | Variable | Default | Explanation |
 |---|---|---|
 | `SENTRY_DSN` | `""` | If set, enables automatic reporting of all exceptions to a [Sentry.io instance](https://sentry.io/). Example: `http://mytoken@mysentry.example.com/1` |
+| `SENTRY_ENVIRONMENT` | `None` | Specifies the value to provided for the `environment` tag in Sentry. Use it to differentiate between different stages or stacks. e.g. `Beta` or `Prod` |
 
 ### Development Settings
 
