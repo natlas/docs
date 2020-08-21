@@ -261,7 +261,30 @@ Accept invitation: http://example.com/auth/invite?token&lt;span style="color:#ce
 user@example.com is now an admin
 &lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="promoting-by-web">Promoting by Web&lt;/h3>
 &lt;p>Promoting a user on the web panel is super easy as long as you already have an admin account. Simply find their email address in the &lt;code>/admin/users&lt;/code> page and click the Promote button.&lt;/p>
-&lt;p>&lt;img src="https://i.imgur.com/1HRYXUW.png" alt="Promoting a user">&lt;/p></description></item><item><title>Docs: Configuring Natlas Agent</title><link>/docs/configuration/agent/</link><pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate><guid>/docs/configuration/agent/</guid><description>
+&lt;p>&lt;img src="https://i.imgur.com/1HRYXUW.png" alt="Promoting a user">&lt;/p></description></item><item><title>Docs: Community Queries</title><link>/docs/examples/dorking/</link><pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate><guid>/docs/examples/dorking/</guid><description>
+&lt;p>This page serves as a community collection of Natlas queries that are good at finding specific items of interest. Some may be fairly common queries that produce interesting results, while others may be significantly more advanced and narrow in on a very specific thing. Share your dorks with us here by simply clicking &amp;ldquo;Edit this page&amp;rdquo; on the right hand side of the page.&lt;/p>
+&lt;h2 id="from-the-staff">From the Staff&lt;/h2>
+&lt;h3 id="expired-ssl-certificates">Expired SSL Certificates&lt;/h3>
+&lt;p>&lt;strong>Query:&lt;/strong> &lt;code>ports.ssl.notAfter:now&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> This query makes use of Elastic&amp;rsquo;s &lt;a href="https://www.elastic.co/guide/en/elasticsearch/reference/6.6/query-dsl-range-query.html#ranges-on-dates">range on date&lt;/a> query capability, where now is automatically expanded out to the current date and time.&lt;/p>
+&lt;h3 id="ssh-password-auth">SSH Password Auth&lt;/h3>
+&lt;p>&lt;strong>Query:&lt;/strong> &lt;code>ports.scripts.id:ssh-auth-methods password&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> This query looks for hosts where the &lt;a href="https://nmap.org/nsedoc/scripts/ssh-auth-methods.html">ssh-auth-methods&lt;/a> nmap script has run and then filters it down further to only hosts who also contain &amp;ldquo;password&amp;rdquo; in their output. This does have the potential for false positive, as queries apply to hosts rather than to individual ports (so if password appears in the response of another port, false positive).&lt;/p>
+&lt;h3 id="exposed-docker-daemons">Exposed Docker Daemons&lt;/h3>
+&lt;p>&lt;strong>Query:&lt;/strong> &lt;code>ports.port:2375 OR ports.port:2376&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> This query looks for open ports that are commonly used by the &lt;a href="https://docs.docker.com/engine/reference/commandline/dockerd/">Docker daemon&lt;/a>. An exposed Docker daemon can result in &lt;a href="https://unit42.paloaltonetworks.com/attackers-tactics-and-techniques-in-unsecured-docker-daemons-revealed/">security incidents&lt;/a> if care is not taken.&lt;/p>
+&lt;h3 id="exposed-git-repositories">Exposed Git Repositories&lt;/h3>
+&lt;p>&lt;strong>Query:&lt;/strong> &lt;code>ports.scripts.id:http-git&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> When a &lt;code>.git&lt;/code> directory can be found over http, it&amp;rsquo;s usually worth exploring to see if the developers left credentials lying around. Read more about the &lt;a href="https://nmap.org/nsedoc/scripts/http-git.html">http-git&lt;/a> script.&lt;/p>
+&lt;h3 id="anonymous-ftp-servers">Anonymous FTP Servers&lt;/h3>
+&lt;p>&lt;strong>Query:&lt;/strong> &lt;code>ports.scripts.id:ftp-anon&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> Exposed FTP servers can be pretty mundane, since many sites will intentionally provide some file downloads over FTP. You may wish to append interesting directories to this search, such as &lt;code>ports.scripts.id:ftp-anon etc&lt;/code>&lt;/p>
+&lt;h3 id="exposed-mongodb">Exposed MongoDB&lt;/h3>
+&lt;p>&lt;strong>Query:&lt;/strong> &lt;code>ports.scripts.id:mongodb-databases !&amp;quot;codeName = Unauthorized&amp;quot; !&amp;quot;ERROR: Script execution&amp;quot;&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> This query is slightly more complex than the others so far. First we look for hosts where the &lt;a href="https://nmap.org/nsedoc/scripts/mongodb-databases.html">mongodb-databases&lt;/a> script ran, then we filter out results where we&amp;rsquo;re unauthorized, and finally we filter out results where script execution failed. When we put it all together, there&amp;rsquo;s a high chance that the results will have exposed unauthenticated databases.&lt;/p>
+&lt;h3 id="exposed-elasticsearch">Exposed Elasticsearch&lt;/h3>
+&lt;p>&lt;strong>Query:&lt;/strong> &lt;code>&amp;quot;You Know, for Search&amp;quot;&lt;/code>&lt;/p>
+&lt;p>&lt;strong>Description:&lt;/strong> Look for exposed Elasticsearch nodes by searching for their tagline, which will show up in the &lt;code>fingerprint-strings&lt;/code> wherever an elasticsearch node can be reached. You definitely don&amp;rsquo;t want these to be available on your network, lest you get &lt;a href="https://www.bleepingcomputer.com/news/security/new-meow-attack-has-deleted-almost-4-000-unsecured-databases/">Meowed&lt;/a>&lt;/p></description></item><item><title>Docs: Configuring Natlas Agent</title><link>/docs/configuration/agent/</link><pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate><guid>/docs/configuration/agent/</guid><description>
 &lt;h2 id="environment-config">Environment Config&lt;/h2>
 &lt;p>All agent configurations are controlled via environment variables. To make modifications to your agent, you can modify environment variables to match your specifications. These options should be placed in a file called &lt;code>.env&lt;/code> that gets mounted into your container in &lt;code>/opt/natlas/natlas-agent/.env&lt;/code>.&lt;/p>
 &lt;h3 id="server-communication">Server Communication&lt;/h3>
