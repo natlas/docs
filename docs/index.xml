@@ -82,6 +82,11 @@
 &lt;td>Enables automatic reporting of all Flask exceptions to a &lt;a href="https://sentry.io/">Sentry.io instance&lt;/a>. Example: &lt;code>http://mytoken@mysentry.example.com/1&lt;/code>&lt;/td>
 &lt;/tr>
 &lt;tr>
+&lt;td>&lt;code>SENTRY_ENVIRONMENT&lt;/code>&lt;/td>
+&lt;td>&lt;code>None&lt;/code>&lt;/td>
+&lt;td>Specifies the value to provided for the &lt;code>environment&lt;/code> tag in Sentry. Use it to differentiate between different stages or stacks. e.g. &lt;code>Beta&lt;/code> or &lt;code>Prod&lt;/code>&lt;/td>
+&lt;/tr>
+&lt;tr>
 &lt;td>&lt;code>SENTRY_JS_DSN&lt;/code>&lt;/td>
 &lt;td>&lt;code>&amp;quot;&amp;quot;&lt;/code>&lt;/td>
 &lt;td>Enables automatic reporting of all JS errors to a &lt;a href="https://sentry.io/">Sentry.io instance&lt;/a>. This is separate from &lt;code>SENTRY_DSN&lt;/code> so you can report client-side errors separately from server-side.&lt;/td>
