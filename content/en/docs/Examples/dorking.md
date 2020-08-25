@@ -39,7 +39,7 @@ This page serves as a community collection of Natlas queries that are good at fi
 
 **Query:** `ports.scripts.id:ftp-anon`
 
-**Description:** Exposed FTP servers can be pretty mundane, since many sites will intentionally provide some file downloads over FTP. You may wish to append interesting directories to this search, such as `ports.scripts.id:ftp-anon etc`
+**Description:** Exposed FTP servers can be pretty mundane, since many sites will intentionally provide some file downloads over FTP. You may wish to append interesting directories to this search, such as `ports.scripts.id:ftp-anon etc`. Alternatively, you can further filter with `NSE: writeable`, per the [ftp-anon](https://nmap.org/nsedoc/scripts/ftp-anon.html) documentation, e.g. `ports.scripts.id:ftp-anon "NSE: writeable"`
 
 ### Exposed MongoDB
 
