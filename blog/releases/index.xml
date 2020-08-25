@@ -11,7 +11,9 @@
 &lt;li>(Server) Searching with a bad search query now returns a 400 Bad Request page instead of an Internal Server Error, and links to &lt;a href="https://docs.natlas.io/docs/tasks/searching-natlas/">our search documentation&lt;/a> (&lt;a href="https://github.com/natlas/natlas/issues/444">#444&lt;/a>)&lt;/li>
 &lt;li>(Server) Accessing &lt;code>/host/&amp;lt;an.invalid.ip&amp;gt;&lt;/code> no longer throws an exception but rather throws a 404 as expected. (&lt;a href="https://github.com/natlas/natlas/issues/449">#449&lt;/a>)&lt;/li>
 &lt;li>(Server) No longer throw an exception when &lt;code>xml_data&lt;/code> is missing from a submission (&lt;a href="https://github.com/natlas/natlas/issues/441">#441&lt;/a>)&lt;/li>
-&lt;/ul></description></item><item><title>Blog: v0.6.11 - Major improvements</title><link>/blog/2020/08/15/v0.6.11-major-improvements/</link><pubDate>Sat, 15 Aug 2020 00:00:00 +0000</pubDate><guid>/blog/2020/08/15/v0.6.11-major-improvements/</guid><description>
+&lt;/ul>
+&lt;h2 id="github">Github&lt;/h2>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.12">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.6.11 - Major improvements</title><link>/blog/2020/08/15/v0.6.11-major-improvements/</link><pubDate>Sat, 15 Aug 2020 00:00:00 +0000</pubDate><guid>/blog/2020/08/15/v0.6.11-major-improvements/</guid><description>
 &lt;p>V0.6.11 introduces a number of major improvements as well as significant changes to the deployment workflow. This is meant to be the last stable release in the &lt;code>v0.6.x&lt;/code> series, as we make many needed architectural changes that will break backwards compatibility for 0.7.0.&lt;/p>
 &lt;p>You&amp;rsquo;ll also notice that we do not provide separate agent and server tarballs with this release, as the standard deployment going forward will be via Docker releases.&lt;/p>
 &lt;h3 id="added">Added&lt;/h3>
