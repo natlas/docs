@@ -8,7 +8,7 @@
 &lt;li>(Server) Scope import via cli now works as expected (&lt;a href="https://github.com/natlas/natlas/issues/436">#436&lt;/a>)&lt;/li>
 &lt;li>(Server) Scope export now works even when scope items have tags (&lt;a href="https://github.com/natlas/natlas/issues/426">#426&lt;/a>)&lt;/li>
 &lt;li>(Server) Errors are now reported as json when json is expected (&lt;a href="https://github.com/natlas/natlas/pull/442">#442&lt;/a>)&lt;/li>
-&lt;li>(Server) Searching with a bad search query now returns a 400 Bad Request page instead of an Internal Server Error, and links to &lt;a href="https://docs.natlas.io/docs/tasks/searching-natlas/">our search documentation&lt;/a> (&lt;a href="https://github.com/natlas/natlas/issues/444">#444&lt;/a>)&lt;/li>
+&lt;li>(Server) Searching with a bad search query now returns a 400 Bad Request page instead of an Internal Server Error, and links to &lt;a href="https://natlas.github.io/docs/docs/tasks/searching-natlas/">our search documentation&lt;/a> (&lt;a href="https://github.com/natlas/natlas/issues/444">#444&lt;/a>)&lt;/li>
 &lt;li>(Server) Accessing &lt;code>/host/&amp;lt;an.invalid.ip&amp;gt;&lt;/code> no longer throws an exception but rather throws a 404 as expected. (&lt;a href="https://github.com/natlas/natlas/issues/449">#449&lt;/a>)&lt;/li>
 &lt;li>(Server) No longer throw an exception when &lt;code>xml_data&lt;/code> is missing from a submission (&lt;a href="https://github.com/natlas/natlas/issues/441">#441&lt;/a>)&lt;/li>
 &lt;/ul>
