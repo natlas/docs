@@ -1,4 +1,4 @@
-baseURL = "/docs.natlas.io/"
+baseURL = "/docs/"
 title = "Natlas Docs"
 
 enableRobotsTXT = true
@@ -94,10 +94,10 @@ version = "0.6.10"
 
 # A link to latest version of the docs. Used in the "version-banner" partial to
 # point people to the main doc site.
-url_latest_version = "https://natlas.github.io/docs.natlas.io/"
+url_latest_version = "https://natlas.github.io/docs/"
 
 # Repository configuration (URLs for in-page links to opening issues and suggesting changes)
-github_repo = "https://github.com/natlas/docs.natlas.io"
+github_repo = "https://github.com/natlas/docs"
 # An optional link to a related project repo. For example, the sibling repository where your product code lives.
 github_project_repo = "https://github.com/natlas/natlas"
 
@@ -133,8 +133,8 @@ footer_about_disable = false
 [params.ui.feedback]
 enable = true
 # The responses that the user sees after clicking "yes" (the page was helpful) or "no" (the page was not helpful).
-yes = 'Glad to hear it! Please <a href="https://github.com/USERNAME/REPOSITORY/issues/new">tell us how we can improve</a>.'
-no = 'Sorry to hear that. Please <a href="https://github.com/USERNAME/REPOSITORY/issues/new">tell us how we can improve</a>.'
+yes = 'Glad to hear it! Please <a href="https://github.com/natlas/docs/issues/new">tell us how we can improve</a>.'
+no = 'Sorry to hear that. Please <a href="https://github.com/natlas/docs/issues/new">tell us how we can improve</a>.'
 
 # Adds a reading time to the top of each doc.
 # If you want this feature, but occasionally need to remove the Reading time from a single page,
@@ -149,4 +149,3 @@ enable = false
 	url = "https://github.com/natlas"
 	icon = "fab fa-github"
         desc = "Development takes place here!"
-
