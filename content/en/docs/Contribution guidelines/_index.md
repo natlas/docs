@@ -28,11 +28,11 @@ Here's a quick guide to updating the docs. It assumes you're familiar with the
 GitHub workflow and you're happy to use the automated preview of your doc
 updates:
 
-1. Fork the [docs.natlas.io repo] on GitHub.
-1. Make any changes you'd like to propose.
-1. Test locally using hugo to build the site. A docker-compose file is provided so that you can simply `docker-compose up hugo` and visit `http://localhost:1313`.
-1. If it all looks good, go ahead and send a pull request (PR).
-1. If you're not yet ready for a review, add "WIP" to the PR name to indicate
+1. Fork the [docs repo] on GitHub.
+2. Make any changes you'd like to propose.
+3. Test locally using hugo to build the site. A docker-compose file is provided so that you can simply `docker-compose up hugo` and visit `http://localhost:1313`.
+4. If it all looks good, go ahead and send a pull request (PR).
+5. If you're not yet ready for a review, add "WIP" to the PR name to indicate
   it's a work in progress and open it as a draft.
 1. Continue updating your doc and pushing your changes until you're happy with
   the content.
@@ -49,7 +49,7 @@ If you've just spotted something you'd like to change while using the docs, we h
 
 ## Creating an issue
 
-If you've found a problem in the docs, but you're not sure how to fix it yourself, please create an issue in the [docs.natlas.io repo]. You can also create an issue about a specific page by clicking the **Create Issue** button in the top right hand corner of the page.
+If you've found a problem in the docs, but you're not sure how to fix it yourself, please create an issue in the [docs repo]. You can also create an issue about a specific page by clicking the **Create Issue** button in the top right hand corner of the page.
 
 ## Useful resources
 
@@ -61,7 +61,7 @@ If you've found a problem in the docs, but you're not sure how to fix it yoursel
 [Docsy]: https://github.com/google/docsy
 [Github Pages]: https://pages.github.com/
 [Github Help]: https://help.github.com/articles/about-pull-requests/
-[docs.natlas.io repo]: https://github.com/natlas/docs.natlas.io
+[docs repo]: https://github.com/natlas/docs
 [Docsy user guide]: https://www.docsy.dev/docs/
 [Hugo documentation]: https://gohugo.io/documentation/
 [Github Hellow World]: https://guides.github.com/activities/hello-world/
