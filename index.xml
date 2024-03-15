@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Natlas – Natlas</title><link>/</link><description>Recent content on Natlas</description><generator>Hugo -- gohugo.io</generator><atom:link href="/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: v0.6.12 - Bug Fixes</title><link>/blog/2020/08/24/v0.6.12-bug-fixes/</link><pubDate>Mon, 24 Aug 2020 00:00:00 +0000</pubDate><guid>/blog/2020/08/24/v0.6.12-bug-fixes/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Natlas – Natlas</title><link>/docs.natlas.io/</link><description>Recent content on Natlas</description><generator>Hugo -- gohugo.io</generator><atom:link href="/docs.natlas.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Blog: v0.6.12 - Bug Fixes</title><link>/docs.natlas.io/blog/2020/08/24/v0.6.12-bug-fixes/</link><pubDate>Mon, 24 Aug 2020 00:00:00 +0000</pubDate><guid>/docs.natlas.io/blog/2020/08/24/v0.6.12-bug-fixes/</guid><description>
 &lt;h3 id="added">Added&lt;/h3>
 &lt;ul>
 &lt;li>(Agent) Better telemetry indicators for exceptions with Sentry (&lt;a href="https://github.com/natlas/natlas/pull/445">#445&lt;/a>)&lt;/li>
@@ -13,11 +13,11 @@
 &lt;li>(Server) No longer throw an exception when &lt;code>xml_data&lt;/code> is missing from a submission (&lt;a href="https://github.com/natlas/natlas/issues/441">#441&lt;/a>)&lt;/li>
 &lt;/ul>
 &lt;h2 id="github">Github&lt;/h2>
-&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.12">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: Announcing Natlas Documentation</title><link>/blog/2020/08/16/announcing-natlas-documentation/</link><pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate><guid>/blog/2020/08/16/announcing-natlas-documentation/</guid><description>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.12">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: Announcing Natlas Documentation</title><link>/docs.natlas.io/blog/2020/08/16/announcing-natlas-documentation/</link><pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate><guid>/docs.natlas.io/blog/2020/08/16/announcing-natlas-documentation/</guid><description>
 &lt;p>We&amp;rsquo;re still getting started with the documentation, but we&amp;rsquo;ve gone from a blank github pages site to an automatically built docs site using &lt;a href="https://gohugo.io/">Hugo&lt;/a> and &lt;a href="https://www.docsy.dev/">Docsy&lt;/a>. Some information that was spread haphazardly throughout the wiki has been consolidated into corresponding docs pages, and a Getting Started guide has been produced.&lt;/p>
-&lt;p>There are RSS feeds for both the &lt;a href="/blog/news/index.xml">project news&lt;/a> as well as &lt;a href="/blog/releases/index.xml">project releases&lt;/a>. If you know where to get a good RSS reader, give me a shout via Twitter. (R.I.P. Google Reader)&lt;/p>
+&lt;p>There are RSS feeds for both the &lt;a href="/docs.natlas.io/blog/news/index.xml">project news&lt;/a> as well as &lt;a href="/docs.natlas.io/blog/releases/index.xml">project releases&lt;/a>. If you know where to get a good RSS reader, give me a shout via Twitter. (R.I.P. Google Reader)&lt;/p>
 &lt;p>With this development also brings the revival of the &lt;a href="https://discord.gg/nVY8Stm">Natlas discord server&lt;/a>, where users and developers alike can convene to talk about ideas for Natlas, get support, and learn from each other.&lt;/p>
-&lt;p>Last but not least, The &lt;a href="https://twitter.com/NatlasTeam">Natlas Team&lt;/a> now has a Twitter account, which will be used to announce new blog posts, new tutorials, new projects, and new releases.&lt;/p></description></item><item><title>Blog: v0.6.11 - Major improvements</title><link>/blog/2020/08/15/v0.6.11-major-improvements/</link><pubDate>Sat, 15 Aug 2020 00:00:00 +0000</pubDate><guid>/blog/2020/08/15/v0.6.11-major-improvements/</guid><description>
+&lt;p>Last but not least, The &lt;a href="https://twitter.com/NatlasTeam">Natlas Team&lt;/a> now has a Twitter account, which will be used to announce new blog posts, new tutorials, new projects, and new releases.&lt;/p></description></item><item><title>Blog: v0.6.11 - Major improvements</title><link>/docs.natlas.io/blog/2020/08/15/v0.6.11-major-improvements/</link><pubDate>Sat, 15 Aug 2020 00:00:00 +0000</pubDate><guid>/docs.natlas.io/blog/2020/08/15/v0.6.11-major-improvements/</guid><description>
 &lt;p>V0.6.11 introduces a number of major improvements as well as significant changes to the deployment workflow. This is meant to be the last stable release in the &lt;code>v0.6.x&lt;/code> series, as we make many needed architectural changes that will break backwards compatibility for 0.7.0.&lt;/p>
 &lt;p>You&amp;rsquo;ll also notice that we do not provide separate agent and server tarballs with this release, as the standard deployment going forward will be via Docker releases.&lt;/p>
 &lt;h3 id="added">Added&lt;/h3>
@@ -68,7 +68,7 @@
 &lt;li>(Both) XML parsing is now defused via the &lt;a href="https://github.com/natlas/natlas-libnmap">natlas-libnmap&lt;/a> library (&lt;a href="https://github.com/natlas/natlas/pull/318">#318&lt;/a>)&lt;/li>
 &lt;/ul>
 &lt;h2 id="github">Github&lt;/h2>
-&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.11">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.6.10 - Aquatone Upgrade &amp; Better Screenshots</title><link>/blog/2020/04/17/v0.6.10-aquatone-upgrade-better-screenshots/</link><pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate><guid>/blog/2020/04/17/v0.6.10-aquatone-upgrade-better-screenshots/</guid><description>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.11">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.6.10 - Aquatone Upgrade &amp; Better Screenshots</title><link>/docs.natlas.io/blog/2020/04/17/v0.6.10-aquatone-upgrade-better-screenshots/</link><pubDate>Fri, 17 Apr 2020 00:00:00 +0000</pubDate><guid>/docs.natlas.io/blog/2020/04/17/v0.6.10-aquatone-upgrade-better-screenshots/</guid><description>
 &lt;p>Notice: This is a re-release due to a bug that was found immediately after release&lt;/p>
 &lt;h3 id="changed">Changed&lt;/h3>
 &lt;ul>
@@ -81,7 +81,7 @@
 &lt;li>&lt;a href="https://github.com/natlas/natlas/issues/352">Agent launch permissions&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="github">Github&lt;/h2>
-&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.10">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.6.9 - Small Changes</title><link>/blog/2020/04/06/v0.6.9-small-changes/</link><pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate><guid>/blog/2020/04/06/v0.6.9-small-changes/</guid><description>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.10">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.6.9 - Small Changes</title><link>/docs.natlas.io/blog/2020/04/06/v0.6.9-small-changes/</link><pubDate>Mon, 06 Apr 2020 00:00:00 +0000</pubDate><guid>/docs.natlas.io/blog/2020/04/06/v0.6.9-small-changes/</guid><description>
 &lt;h3 id="added">Added&lt;/h3>
 &lt;ul>
 &lt;li>Search can now be augmented with &lt;code>&amp;amp;format=json&lt;/code> to return search results in json format.&lt;/li>
@@ -95,7 +95,7 @@
 &lt;li>Updated Pillow dependency to address CVE-2020-5313 and CVE-2019-19911.&lt;/li>
 &lt;/ul>
 &lt;h2 id="github">Github&lt;/h2>
-&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.9">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.6.8 - Bugfixes, Status, Docker, and Metrics!</title><link>/blog/2020/03/10/v0.6.8-bugfixes-status-docker-and-metrics/</link><pubDate>Tue, 10 Mar 2020 00:00:00 +0000</pubDate><guid>/blog/2020/03/10/v0.6.8-bugfixes-status-docker-and-metrics/</guid><description>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.9">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.6.8 - Bugfixes, Status, Docker, and Metrics!</title><link>/docs.natlas.io/blog/2020/03/10/v0.6.8-bugfixes-status-docker-and-metrics/</link><pubDate>Tue, 10 Mar 2020 00:00:00 +0000</pubDate><guid>/docs.natlas.io/blog/2020/03/10/v0.6.8-bugfixes-status-docker-and-metrics/</guid><description>
 &lt;h3 id="added">Added&lt;/h3>
 &lt;ul>
 &lt;li>Docker files are available for the agent and server now.&lt;/li>
@@ -117,7 +117,7 @@
 &lt;li>Fixed a bug where Screenshot and Random routes did not require authentication even if it was marked as required in the config. (&lt;a href="https://github.com/natlas/natlas/issues/228">#228&lt;/a>)&lt;/li>
 &lt;/ul>
 &lt;h2 id="github">Github&lt;/h2>
-&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.8">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.6.7 - Bugfixes, Quality of Life, Code Improvements</title><link>/blog/2019/10/20/v0.6.7-bugfixes-quality-of-life-code-improvements/</link><pubDate>Sun, 20 Oct 2019 00:00:00 +0000</pubDate><guid>/blog/2019/10/20/v0.6.7-bugfixes-quality-of-life-code-improvements/</guid><description>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.8">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.6.7 - Bugfixes, Quality of Life, Code Improvements</title><link>/docs.natlas.io/blog/2019/10/20/v0.6.7-bugfixes-quality-of-life-code-improvements/</link><pubDate>Sun, 20 Oct 2019 00:00:00 +0000</pubDate><guid>/docs.natlas.io/blog/2019/10/20/v0.6.7-bugfixes-quality-of-life-code-improvements/</guid><description>
 &lt;h3 id="added">Added&lt;/h3>
 &lt;ul>
 &lt;li>Administrators can now configure process timeout values for web and vnc screenshot agent capabilities. (&lt;a href="https://github.com/natlas/natlas/issues/186">#186&lt;/a>)&lt;/li>
@@ -138,7 +138,7 @@
 &lt;li>Removed unexpected search export button when no search results &lt;a href="https://github.com/natlas/natlas/issues/193">#193&lt;/a>&lt;/li>
 &lt;/ul>
 &lt;h2 id="github">Github&lt;/h2>
-&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.7">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.6.6 - Agent Improvements, Screenshot Browser, &amp; More</title><link>/blog/2019/10/15/v0.6.6-agent-improvements-screenshot-browser-more/</link><pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate><guid>/blog/2019/10/15/v0.6.6-agent-improvements-screenshot-browser-more/</guid><description>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.7">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.6.6 - Agent Improvements, Screenshot Browser, &amp; More</title><link>/docs.natlas.io/blog/2019/10/15/v0.6.6-agent-improvements-screenshot-browser-more/</link><pubDate>Tue, 15 Oct 2019 00:00:00 +0000</pubDate><guid>/docs.natlas.io/blog/2019/10/15/v0.6.6-agent-improvements-screenshot-browser-more/</guid><description>
 &lt;h3 id="known-bugs">Known Bugs&lt;/h3>
 &lt;ul>
 &lt;li>2019-10-16 - The agent doesn&amp;rsquo;t automatically create it&amp;rsquo;s logs folder, resulting in a failure. &lt;code>mkdir logs&lt;/code> in the &lt;code>natlas-agent&lt;/code> directory to fix this. (&lt;a href="https://github.com/natlas/natlas/issues/181">#181&lt;/a>). This has been hotpatched into the 0.6.6 release tarball below.&lt;/li>
@@ -167,7 +167,7 @@
 &lt;li>Improve randomness of &lt;code>/random/&lt;/code> route by selecting a rand int each time instead of seeding with timestamp. (&lt;a href="https://github.com/natlas/natlas/issues/178">#178&lt;/a>)&lt;/li>
 &lt;/ul>
 &lt;h2 id="github">Github&lt;/h2>
-&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.6">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.6.5 - Screenshot overhaul, bugfixes, performance improvements</title><link>/blog/2019/10/05/v0.6.5-screenshot-overhaul-bugfixes-performance-improvements/</link><pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate><guid>/blog/2019/10/05/v0.6.5-screenshot-overhaul-bugfixes-performance-improvements/</guid><description>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.6">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.6.5 - Screenshot overhaul, bugfixes, performance improvements</title><link>/docs.natlas.io/blog/2019/10/05/v0.6.5-screenshot-overhaul-bugfixes-performance-improvements/</link><pubDate>Sat, 05 Oct 2019 00:00:00 +0000</pubDate><guid>/docs.natlas.io/blog/2019/10/05/v0.6.5-screenshot-overhaul-bugfixes-performance-improvements/</guid><description>
 &lt;h3 id="added">Added&lt;/h3>
 &lt;ul>
 &lt;li>Consolidate server logs into logs/ folder (&lt;a href="https://github.com/natlas/natlas/issues/163">#163&lt;/a>)&lt;/li>
@@ -196,7 +196,7 @@
 &lt;li>Screenshots Page Only Shows Most Recent Screenshots (&lt;a href="https://github.com/natlas/natlas/issues/98">#98&lt;/a>)&lt;/li>
 &lt;/ul>
 &lt;h2 id="github">Github&lt;/h2>
-&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.5">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.6.4 - Bugfixes! Quality of life!</title><link>/blog/2019/09/29/v0.6.4-bugfixes-quality-of-life/</link><pubDate>Sun, 29 Sep 2019 00:00:00 +0000</pubDate><guid>/blog/2019/09/29/v0.6.4-bugfixes-quality-of-life/</guid><description>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.5">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.6.4 - Bugfixes! Quality of life!</title><link>/docs.natlas.io/blog/2019/09/29/v0.6.4-bugfixes-quality-of-life/</link><pubDate>Sun, 29 Sep 2019 00:00:00 +0000</pubDate><guid>/docs.natlas.io/blog/2019/09/29/v0.6.4-bugfixes-quality-of-life/</guid><description>
 &lt;h3 id="added">Added&lt;/h3>
 &lt;ul>
 &lt;li>Server - Random button gives us a random host (&lt;a href="https://github.com/natlas/natlas/issues/131">#131&lt;/a>)&lt;/li>
@@ -216,7 +216,7 @@
 &lt;li>Agent - Fixed retry failures when server is down so agents should now automatically try to reconnect as intended (&lt;a href="https://github.com/natlas/natlas/issues/155">#155&lt;/a>)&lt;/li>
 &lt;/ul>
 &lt;h2 id="github">Github&lt;/h2>
-&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.4">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.6.3 - Security fixes and style improvements</title><link>/blog/2019/04/22/v0.6.3-security-fixes-and-style-improvements/</link><pubDate>Mon, 22 Apr 2019 00:00:00 +0000</pubDate><guid>/blog/2019/04/22/v0.6.3-security-fixes-and-style-improvements/</guid><description>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.4">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.6.3 - Security fixes and style improvements</title><link>/docs.natlas.io/blog/2019/04/22/v0.6.3-security-fixes-and-style-improvements/</link><pubDate>Mon, 22 Apr 2019 00:00:00 +0000</pubDate><guid>/docs.natlas.io/blog/2019/04/22/v0.6.3-security-fixes-and-style-improvements/</guid><description>
 &lt;h3 id="added">Added&lt;/h3>
 &lt;ul>
 &lt;li>Normal users can now be added with the add-admin.py bootstrap script&lt;/li>
@@ -239,7 +239,7 @@
 &lt;li>Removed an unused css load from adobe for the NATLAS logo font. We previously settled on using the image, but had forgotten to remove the font stylesheet include.&lt;/li>
 &lt;/ul>
 &lt;h2 id="github">Github&lt;/h2>
-&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.3">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.6.2 - New branding, back to top, standardized comms</title><link>/blog/2019/04/20/v0.6.2-new-branding-back-to-top-standardized-comms/</link><pubDate>Sat, 20 Apr 2019 00:00:00 +0000</pubDate><guid>/blog/2019/04/20/v0.6.2-new-branding-back-to-top-standardized-comms/</guid><description>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.3">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.6.2 - New branding, back to top, standardized comms</title><link>/docs.natlas.io/blog/2019/04/20/v0.6.2-new-branding-back-to-top-standardized-comms/</link><pubDate>Sat, 20 Apr 2019 00:00:00 +0000</pubDate><guid>/docs.natlas.io/blog/2019/04/20/v0.6.2-new-branding-back-to-top-standardized-comms/</guid><description>
 &lt;h3 id="added">Added&lt;/h3>
 &lt;ul>
 &lt;li>Branding improvements&lt;/li>
@@ -257,7 +257,7 @@
 &lt;li>Agent standalone mode got broken with the agent configurations, fixed the standalone default scanning options&lt;/li>
 &lt;/ul>
 &lt;h2 id="github">Github&lt;/h2>
-&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.2">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.6.1 - Bugfixes</title><link>/blog/2019/04/18/v0.6.1-bugfixes/</link><pubDate>Thu, 18 Apr 2019 00:00:00 +0000</pubDate><guid>/blog/2019/04/18/v0.6.1-bugfixes/</guid><description>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.2">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.6.1 - Bugfixes</title><link>/docs.natlas.io/blog/2019/04/18/v0.6.1-bugfixes/</link><pubDate>Thu, 18 Apr 2019 00:00:00 +0000</pubDate><guid>/docs.natlas.io/blog/2019/04/18/v0.6.1-bugfixes/</guid><description>
 &lt;h3 id="server-changes">Server changes&lt;/h3>
 &lt;ul>
 &lt;li>Fix natlas-services issue where an agent requesting a new copy of services would break the admin page.&lt;/li>
@@ -266,7 +266,7 @@
 &lt;h3 id="agent-changes">Agent changes&lt;/h3>
 &lt;p>None&lt;/p>
 &lt;h2 id="github">Github&lt;/h2>
-&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.1">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.6.0 - Structured Data, Better Config, Agent Authn, and more!</title><link>/blog/2019/04/17/v0.6.0-structured-data-better-config-agent-authn-and-more/</link><pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate><guid>/blog/2019/04/17/v0.6.0-structured-data-better-config-agent-authn-and-more/</guid><description>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.1">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.6.0 - Structured Data, Better Config, Agent Authn, and more!</title><link>/docs.natlas.io/blog/2019/04/17/v0.6.0-structured-data-better-config-agent-authn-and-more/</link><pubDate>Wed, 17 Apr 2019 00:00:00 +0000</pubDate><guid>/docs.natlas.io/blog/2019/04/17/v0.6.0-structured-data-better-config-agent-authn-and-more/</guid><description>
 &lt;h3 id="server-changes">Server changes&lt;/h3>
 &lt;ul>
 &lt;li>Administrators can now require that agents be authenticated in order to get and submit work.&lt;/li>
@@ -304,7 +304,7 @@
 &lt;li>In that same time, I&amp;rsquo;ve watched Hackers a dozen times, and listened to &lt;a href="https://www.youtube.com/watch?v=bV-hSgL1R74">Halcyon On and On&lt;/a> for at least 8 hours.&lt;/li>
 &lt;/ul>
 &lt;h2 id="github">Github&lt;/h2>
-&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.1">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.5.4 - Server stability improvements</title><link>/blog/2019/03/04/v0.5.4-server-stability-improvements/</link><pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate><guid>/blog/2019/03/04/v0.5.4-server-stability-improvements/</guid><description>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.6.1">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.5.4 - Server stability improvements</title><link>/docs.natlas.io/blog/2019/03/04/v0.5.4-server-stability-improvements/</link><pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate><guid>/docs.natlas.io/blog/2019/03/04/v0.5.4-server-stability-improvements/</guid><description>
 &lt;h3 id="server-changes">Server changes&lt;/h3>
 &lt;ul>
 &lt;li>Enable elasticsearch via systemctl in &lt;code>setup-elastic.sh&lt;/code> for server stability.&lt;/li>
@@ -312,7 +312,7 @@
 &lt;h3 id="agent-changes">Agent changes&lt;/h3>
 &lt;p>None&lt;/p>
 &lt;h2 id="github">Github&lt;/h2>
-&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.5.4">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.5.3 - Server setup improvements</title><link>/blog/2019/03/01/v0.5.3-server-setup-improvements/</link><pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate><guid>/blog/2019/03/01/v0.5.3-server-setup-improvements/</guid><description>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.5.4">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.5.3 - Server setup improvements</title><link>/docs.natlas.io/blog/2019/03/01/v0.5.3-server-setup-improvements/</link><pubDate>Fri, 01 Mar 2019 00:00:00 +0000</pubDate><guid>/docs.natlas.io/blog/2019/03/01/v0.5.3-server-setup-improvements/</guid><description>
 &lt;h3 id="server-changes">Server changes&lt;/h3>
 &lt;ul>
 &lt;li>Improved setup-server.sh to install virtualenv via apt instead of pip3&lt;/li>
@@ -320,7 +320,7 @@
 &lt;h3 id="agent-changes">Agent changes&lt;/h3>
 &lt;p>None&lt;/p>
 &lt;h2 id="github">Github&lt;/h2>
-&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.5.3">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.5.2 - Setup improvements</title><link>/blog/2019/02/24/v0.5.2-setup-improvements/</link><pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate><guid>/blog/2019/02/24/v0.5.2-setup-improvements/</guid><description>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.5.3">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.5.2 - Setup improvements</title><link>/docs.natlas.io/blog/2019/02/24/v0.5.2-setup-improvements/</link><pubDate>Sun, 24 Feb 2019 00:00:00 +0000</pubDate><guid>/docs.natlas.io/blog/2019/02/24/v0.5.2-setup-improvements/</guid><description>
 &lt;h3 id="server-changes">Server changes&lt;/h3>
 &lt;ul>
 &lt;li>Improved setup-server.sh to fix user creation and chown files to natlas:natlas before exiting&lt;/li>
@@ -328,7 +328,7 @@
 &lt;h3 id="agent-changes">Agent changes&lt;/h3>
 &lt;p>None&lt;/p>
 &lt;h2 id="github">Github&lt;/h2>
-&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.5.2">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.5.1 - Bugfix for agent configs + more responsive view</title><link>/blog/2019/02/17/v0.5.1-bugfix-for-agent-configs-more-responsive-view/</link><pubDate>Sun, 17 Feb 2019 00:00:00 +0000</pubDate><guid>/blog/2019/02/17/v0.5.1-bugfix-for-agent-configs-more-responsive-view/</guid><description>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.5.2">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.5.1 - Bugfix for agent configs + more responsive view</title><link>/docs.natlas.io/blog/2019/02/17/v0.5.1-bugfix-for-agent-configs-more-responsive-view/</link><pubDate>Sun, 17 Feb 2019 00:00:00 +0000</pubDate><guid>/docs.natlas.io/blog/2019/02/17/v0.5.1-bugfix-for-agent-configs-more-responsive-view/</guid><description>
 &lt;h3 id="server-changes">Server Changes&lt;/h3>
 &lt;ul>
 &lt;li>More responsive views should also improve the experience on smaller devices.&lt;/li>
@@ -338,7 +338,7 @@
 &lt;li>Fixed bug that was causing environment variables to cause failures in the application because they weren&amp;rsquo;t properly being cast from strings to integers.&lt;/li>
 &lt;/ul>
 &lt;h2 id="github">Github&lt;/h2>
-&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.5.1">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.5.0 - Initial release</title><link>/blog/2019/02/15/v0.5.0-initial-release/</link><pubDate>Fri, 15 Feb 2019 00:00:00 +0000</pubDate><guid>/blog/2019/02/15/v0.5.0-initial-release/</guid><description>
+&lt;p>&lt;a href="https://github.com/natlas/natlas/releases/tag/v0.5.1">Github Release&lt;/a>&lt;/p></description></item><item><title>Blog: v0.5.0 - Initial release</title><link>/docs.natlas.io/blog/2019/02/15/v0.5.0-initial-release/</link><pubDate>Fri, 15 Feb 2019 00:00:00 +0000</pubDate><guid>/docs.natlas.io/blog/2019/02/15/v0.5.0-initial-release/</guid><description>
 &lt;p>This release is to provide a consistent, relatively bug free experience for deploying the natlas server and natlas agents. It does not yet contain all of the desired features initially laid out for the project, but it provides a functional set of software that can be used to begin distributed scanning and centralized storage of data to an Elasticsearch back-end.&lt;/p>
 &lt;p>Development was done on Ubuntu 18.10
 Testing was done on Ubuntu 18.10 desktop and 18.04.1 LTS server (headless).&lt;/p>

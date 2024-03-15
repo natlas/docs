@@ -1,4 +1,4 @@
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Natlas – Configuration</title><link>/docs/configuration/</link><description>Recent content in Configuration on Natlas</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Fri, 14 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="/docs/configuration/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Configuring Natlas Server</title><link>/docs/configuration/server/</link><pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate><guid>/docs/configuration/server/</guid><description>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Natlas – Configuration</title><link>/docs.natlas.io/docs/configuration/</link><description>Recent content in Configuration on Natlas</description><generator>Hugo -- gohugo.io</generator><lastBuildDate>Fri, 14 Aug 2020 00:00:00 +0000</lastBuildDate><atom:link href="/docs.natlas.io/docs/configuration/index.xml" rel="self" type="application/rss+xml"/><item><title>Docs: Configuring Natlas Server</title><link>/docs.natlas.io/docs/configuration/server/</link><pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate><guid>/docs.natlas.io/docs/configuration/server/</guid><description>
 &lt;p>There are a number of config options that you can specify in the application environment or in a file called &lt;code>.env&lt;/code> before initializing the database and launching the application. There are also a number of configuration options available for the server which change certain authentication-based behaviors as well as agent work configurations.&lt;/p>
 &lt;h2 id="environment-config">Environment Config&lt;/h2>
 &lt;p>Environment configs are loaded from the environment or a &lt;code>.env&lt;/code> file and require an application restart to change. Bind mounting a &lt;code>.env&lt;/code> file to &lt;code>/opt/natlas/natlas-server/.env&lt;/code> (rather than providing it as a docker env file) is encouraged so that passwords are not visible to the entire container.&lt;/p>
@@ -241,7 +241,7 @@
 &lt;td>Custom branding for the navigation bar to help distinguish different natlas installations from one another&lt;/td>
 &lt;/tr>
 &lt;/tbody>
-&lt;/table></description></item><item><title>Docs: Configuring Natlas Agent</title><link>/docs/configuration/agent/</link><pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate><guid>/docs/configuration/agent/</guid><description>
+&lt;/table></description></item><item><title>Docs: Configuring Natlas Agent</title><link>/docs.natlas.io/docs/configuration/agent/</link><pubDate>Sun, 16 Aug 2020 00:00:00 +0000</pubDate><guid>/docs.natlas.io/docs/configuration/agent/</guid><description>
 &lt;h2 id="environment-config">Environment Config&lt;/h2>
 &lt;p>All agent configurations are controlled via environment variables. To make modifications to your agent, you can modify environment variables to match your specifications. These options should be placed in a file called &lt;code>.env&lt;/code> that gets mounted into your container in &lt;code>/opt/natlas/natlas-agent/.env&lt;/code>.&lt;/p>
 &lt;h3 id="server-communication">Server Communication&lt;/h3>
@@ -380,7 +380,7 @@
 &lt;span style="color:#000">NATLAS_MAX_THREADS&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>&lt;span style="color:#0000cf;font-weight:bold">25&lt;/span>
 &lt;span style="color:#000">NATLAS_AGENT_ID&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>this-is-example-id
 &lt;span style="color:#000">NATLAS_AGENT_TOKEN&lt;/span>&lt;span style="color:#ce5c00;font-weight:bold">=&lt;/span>this-is-obviously-an-example-token
-&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: NGINX as a Reverse Proxy</title><link>/docs/configuration/nginx-as-a-reverse-proxy/</link><pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate><guid>/docs/configuration/nginx-as-a-reverse-proxy/</guid><description>
+&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Docs: NGINX as a Reverse Proxy</title><link>/docs.natlas.io/docs/configuration/nginx-as-a-reverse-proxy/</link><pubDate>Fri, 14 Aug 2020 00:00:00 +0000</pubDate><guid>/docs.natlas.io/docs/configuration/nginx-as-a-reverse-proxy/</guid><description>
 &lt;div class="pageinfo pageinfo-primary">
 &lt;p>This section provides resources for setting up nginx as a reverse proxy for your Natlas server.&lt;/p>
 &lt;/div>
