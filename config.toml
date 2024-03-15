@@ -1,4 +1,4 @@
-baseURL = "/"
+baseURL = "/docs.natlas.io/"
 title = "Natlas Docs"
 
 enableRobotsTXT = true
